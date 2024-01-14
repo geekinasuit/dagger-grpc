@@ -1,0 +1,9 @@
+load("@io_bazel_rules_kotlin//kotlin:jvm.bzl", "kt_jvm_test")
+
+kt_jvm_test(
+    name = "FooTest",
+    srcs = ["FooTest.kt"],
+    deps = [
+        "@maven//:junit_junit",
+    ],
+)
