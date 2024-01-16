@@ -1,0 +1,12 @@
+load("@io_bazel_rules_kotlin//kotlin:jvm.bzl", "kt_jvm_library")
+
+package(default_visibility = ["//visibility:public"])
+
+kt_jvm_library(
+    name = "armeria",
+    srcs = glob(["src/main/kotlin/**/*.kt"]),
+    deps = [
+        "@maven//:com_linecorp_armeria_armeria_grpc",
+        "@maven//:io_grpc_grpc_api",
+    ],
+)

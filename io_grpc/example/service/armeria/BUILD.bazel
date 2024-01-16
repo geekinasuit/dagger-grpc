@@ -7,7 +7,9 @@ kt_jvm_library(
     name = "lib",
     srcs = glob(["src/main/kotlin/**/*.kt"]),
     deps = [
+        "//api",
         "//io_grpc/example/proto:grpc",
+        "//util/armeria",
         "@com_google_protobuf//java/core",
         "@maven//:com_google_guava_guava",
         "@maven//:com_linecorp_armeria_armeria_grpc",

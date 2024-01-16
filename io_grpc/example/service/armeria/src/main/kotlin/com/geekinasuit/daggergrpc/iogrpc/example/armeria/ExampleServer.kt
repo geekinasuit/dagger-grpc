@@ -1,5 +1,6 @@
 package com.geekinasuit.daggergrpc.iogrpc.example.armeria
 
+import com.geekinasuit.daggergrpc.armeria.wrapService
 import com.linecorp.armeria.server.Server
 import io.github.oshai.kotlinlogging.KotlinLogging
 
