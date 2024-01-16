@@ -84,3 +84,11 @@ RULES_RUBY = rules_metadata(
     sha = "e3495d0129222572654cc5dd5c72c6c997513d65fb8649f43a860ab15334a1c2",
     url_template = "https://github.com/{o}/{p}/releases/download/v{v}/{p}-v{v}.tar.gz",
 )
+
+DAGGER = rules_metadata(
+    name = "dagger",
+    version = "2.50",
+    github_project = "google/dagger",
+    sha = "764993ba2465551c181b84b47e467f86fb367d8c0cd50154bd5519a4afb57753",
+    url_template = "https://github.com/{o}/{p}/archive/{p}-{v}.zip",
+)

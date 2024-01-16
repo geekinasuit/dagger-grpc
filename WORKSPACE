@@ -3,6 +3,7 @@ load(
     ":versions.bzl",
     "BAZEL_SKYLIB",
     "COM_GOOGLE_PROTOBUF",
+    "DAGGER",
     "IO_GRPC_JAVA_SHA",
     "IO_GRPC_JAVA_URL",
     "IO_GRPC_JAVA_VERSION",
@@ -79,6 +80,13 @@ http_archive(
     sha256 = COM_GOOGLE_PROTOBUF.sha,
     strip_prefix = "protobuf-%s" % COM_GOOGLE_PROTOBUF.version,
     urls = [COM_GOOGLE_PROTOBUF.url],
+)
+
+http_archive(
+    name = DAGGER.name,
+    sha256 = DAGGER.sha,
+    strip_prefix = "dagger-dagger-%s" % DAGGER.version,
+    urls = [DAGGER.url],
 )
 
 load("@bazel_skylib//:workspace.bzl", "bazel_skylib_workspace")

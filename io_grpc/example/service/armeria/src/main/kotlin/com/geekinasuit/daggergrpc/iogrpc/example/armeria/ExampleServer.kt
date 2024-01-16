@@ -3,20 +3,22 @@ package com.geekinasuit.daggergrpc.iogrpc.example.armeria
 import com.geekinasuit.daggergrpc.armeria.wrapService
 import com.linecorp.armeria.server.Server
 import io.github.oshai.kotlinlogging.KotlinLogging
+import io.grpc.BindableService
+import javax.inject.Inject
 
 private val log = KotlinLogging.logger {}
 
 const val PORT = 8888
 
-class ExampleServer {
+class ExampleServer
+@Inject
+constructor(private val services: Set<@JvmSuppressWildcards BindableService>) {
 
-  fun build(): Server {
+  fun setup(): Server {
     log.info { "startup" }
-    val services =
-      listOf(
-        wrapService(HelloWorldServiceAdapter { HelloWorldService() }, GrpcCallContextInterceptor),
-        wrapService(WhateverServiceAdapter { WhateverService() }, GrpcCallContextInterceptor)
-      )
-    return Server.builder().http(PORT).apply { services.forEach { this.service(it) } }.build()
+    return Server.builder()
+      .http(PORT)
+      .apply { services.forEach { this.service(wrapService(it)) } }
+      .build()
   }
 }

@@ -1,4 +1,5 @@
 load("@rules_jvm_external//:defs.bzl", "maven_install")
+load("@dagger//:workspace_defs.bzl", "DAGGER_ARTIFACTS", "DAGGER_REPOSITORIES")
 load(
     "@io_grpc_grpc_java//:repositories.bzl",
     "IO_GRPC_GRPC_JAVA_ARTIFACTS",
@@ -14,7 +15,7 @@ artifacts = [
     "io.github.oshai:kotlin-logging-jvm:5.1.0",
     "io.grpc:grpc-kotlin-stub:1.4.1",
     "com.google.code.findbugs:jsr305:3.0.2",
-] + IO_GRPC_GRPC_JAVA_ARTIFACTS
+] + IO_GRPC_GRPC_JAVA_ARTIFACTS + DAGGER_ARTIFACTS
 
 override_targets = {
     #         "your.target:artifact": "@//third_party/artifact",
@@ -27,7 +28,7 @@ def load_maven_artifacts():
             "m2local",
             "https://maven.google.com",
             "https://repo1.maven.org/maven2",
-        ],
+        ] + DAGGER_REPOSITORIES,
         override_targets = override_targets,
         generate_compat_repositories = True,
         fetch_sources = True,
