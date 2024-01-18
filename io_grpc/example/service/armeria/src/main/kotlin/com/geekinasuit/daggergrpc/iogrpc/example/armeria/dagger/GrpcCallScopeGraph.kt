@@ -7,7 +7,7 @@ import com.geekinasuit.daggergrpc.iogrpc.example.armeria.WhateverService
 import dagger.Subcomponent
 
 @Generated
-@Subcomponent(modules = [])
+@Subcomponent(modules = [GrpcCallScopeGraphModule::class])
 @GrpcCallScope
 interface GrpcCallScopeGraph {
   fun helloWorld(): HelloWorldService

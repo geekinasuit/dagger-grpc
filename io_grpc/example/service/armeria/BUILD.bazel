@@ -6,6 +6,9 @@ load("@io_grpc_grpc_java//:java_grpc_library.bzl", "java_grpc_library")
 kt_jvm_library(
     name = "lib",
     srcs = glob(["src/main/kotlin/**/*.kt"]),
+    runtime_deps = [
+        "@maven//:org_slf4j_slf4j_jdk14",
+    ],
     deps = [
         "//api",
         "//io_grpc/example/proto:grpc",

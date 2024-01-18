@@ -15,6 +15,7 @@ artifacts = [
     "io.github.oshai:kotlin-logging-jvm:5.1.0",
     "io.grpc:grpc-kotlin-stub:1.4.1",
     "com.google.code.findbugs:jsr305:3.0.2",
+    "org.slf4j:slf4j-jdk14:2.0.11",
 ] + IO_GRPC_GRPC_JAVA_ARTIFACTS + DAGGER_ARTIFACTS
 
 override_targets = {

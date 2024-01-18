@@ -6,6 +6,7 @@ kt_jvm_library(
     name = "api",
     srcs = glob(["src/main/kotlin/**/*.kt"]),
     deps = [
+        "//third_party/dagger",
         "@maven//:io_grpc_grpc_api",
         "@maven//:javax_inject_javax_inject",
     ],

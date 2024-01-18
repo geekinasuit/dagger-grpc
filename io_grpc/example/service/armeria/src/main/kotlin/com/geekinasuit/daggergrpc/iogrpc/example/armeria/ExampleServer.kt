@@ -1,5 +1,6 @@
 package com.geekinasuit.daggergrpc.iogrpc.example.armeria
 
+import com.geekinasuit.daggergrpc.api.GrpcCallContext
 import com.geekinasuit.daggergrpc.armeria.wrapService
 import com.linecorp.armeria.server.Server
 import io.github.oshai.kotlinlogging.KotlinLogging
@@ -18,7 +19,7 @@ constructor(private val services: Set<@JvmSuppressWildcards BindableService>) {
     log.info { "startup" }
     return Server.builder()
       .http(PORT)
-      .apply { services.forEach { this.service(wrapService(it)) } }
+      .apply { services.forEach { this.service(wrapService(it, GrpcCallContext.Interceptor())) } }
       .build()
   }
 }
