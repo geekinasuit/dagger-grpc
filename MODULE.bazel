@@ -1,0 +1,13 @@
+###############################################################################
+# Bazel now uses Bzlmod by default to manage external dependencies.
+# Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel.
+#
+# For more details, please check https://github.com/bazelbuild/bazel/issues/18958
+###############################################################################
+module(
+    name = "dagger-grpc",
+    version = "1.0",
+)
+
+# This must be at some version after emptyString() method was made public.
+bazel_dep(name = "protobuf", version = "23.1")
