@@ -1,3 +1,28 @@
-load("@dagger//:workspace_defs.bzl", "dagger_rules")
+load("@rules_java//java:defs.bzl", "java_library")
 
-dagger_rules()
+java_library(
+    name = "dagger",
+    exported_plugins = [":dagger-compiler"],
+    visibility = ["//visibility:public"],
+    exports = [
+        "@maven//:com_google_dagger_dagger",
+        "@maven//:javax_inject_javax_inject",
+    ],
+)
+
+java_plugin(
+    name = "dagger-compiler",
+    generates_api = 1,
+    processor_class = "dagger.internal.codegen.ComponentProcessor",
+    deps = [
+        "@maven//:com_google_dagger_dagger_compiler",
+    ],
+)
+
+java_library(
+    name = "dagger-spi",
+    visibility = ["//visibility:public"],
+    exports = [
+        "@maven//:com_google_dagger_dagger_spi",
+    ],
+)
