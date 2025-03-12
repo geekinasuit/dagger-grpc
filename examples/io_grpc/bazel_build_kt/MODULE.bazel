@@ -1,0 +1,7 @@
+module(
+    name = "dagger-grpc-examples-io_grpc_bazel_kt",
+    version = "0.1",
+)
+
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "protobuf", version = "23.1")

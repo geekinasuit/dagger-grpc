@@ -1,0 +1,13 @@
+load("@rules_kotlin//kotlin:jvm.bzl", "kt_jvm_binary", "kt_jvm_library")
+load("@protobuf//bazel:proto_library.bzl", "proto_library")
+load("@rules_java//java:defs.bzl", "java_test")
+load("@grpc-java//:java_grpc_library.bzl", "java_grpc_library")
+
+java_test(
+    name = "ServiceTest",
+    srcs = ["ServiceTest.java"],
+    deps = [
+        "//service/armeria:lib",
+        "@maven//:junit_junit",
+    ],
+)

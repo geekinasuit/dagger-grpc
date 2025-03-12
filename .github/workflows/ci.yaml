@@ -8,27 +8,50 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
-
     steps:
     - uses: actions/checkout@v4
-
-
     - uses: bazel-contrib/setup-bazel@0.13.0
       with:
-        # Avoid downloading Bazel every time.
         bazelisk-cache: true
-        # Store build cache per workflow.
         disk-cache: ${{ github.workflow }}
-        # Share repository cache between workflows.
         repository-cache: true
-
-    # Fail fast if the build doesn't pass.
     - name: Build project
       run: bazel build //...
     
     - name: Build project
       run: bazel test //...
+
+  prepare_matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.compute_matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: compute_matrix
+        run: |
+          examples="{\"path\":\"$(find examples -name MODULE.bazel -exec dirname {} \; | paste -s -d',' - | sed 's#,#"},{"path":"#g')\"}"
+          echo $examples
+          echo "matrix={\"include\": [$examples]}" >> "$GITHUB_OUTPUT"
+          cat "$GITHUB_OUTPUT"
+
+  test_bazel_examples:
+    needs: prepare_matrix
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    strategy:
+      matrix: ${{fromJson(needs.prepare_matrix.outputs.matrix)}}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: bazel-contrib/setup-bazel@0.13.0
+        with:
+          bazelisk-cache: true
+          disk-cache: ${{ github.workflow }}-${{ matrix.path }}
+          repository-cache: true
+      - name: Building ${{matrix.path}}
+        run: cd ${{matrix.path}} ; bazel build //...
+      - name: Testing ${{matrix.path}}
+        run: cd ${{matrix.path}} ; bazel test //...
