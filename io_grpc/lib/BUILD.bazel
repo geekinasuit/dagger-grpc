@@ -1,8 +1,8 @@
-load("@io_bazel_rules_kotlin//kotlin:jvm.bzl", "kt_jvm_library")
+load("@rules_kotlin//kotlin:jvm.bzl", "kt_jvm_library")
 
 kt_jvm_library(
     name = "lib",
-    srcs = glob(["src/io_grpc.example.client.src.main.kotlin.com.google.daggergrpc.iogrpc.example.client.main/kotlin/**/*.kt"]),
+    srcs = glob(["src/main/kotlin/**/*.kt"]),
     deps = [
     ],
 )
