@@ -1,10 +1,12 @@
 load("@rules_kotlin//kotlin:jvm.bzl", "kt_jvm_binary", "kt_jvm_library")
 
+package(default_visibility = ["//visibility:public"])
+
 kt_jvm_library(
     name = "lib",
     srcs = glob(["src/main/kotlin/**/*.kt"]),
     deps = [
-        "//io_grpc/example/proto:grpc",
+        "//proto:grpc",
         "@maven//:com_google_guava_guava",
         "@maven//:com_linecorp_armeria_armeria_grpc",
         "@maven//:io_github_oshai_kotlin_logging_jvm",
@@ -16,6 +18,7 @@ kt_jvm_library(
 java_binary(
     name = "client",
     main_class = "com.geekinasuit.daggergrpc.iogrpc.example.client.ExampleKt",
+    visibility = ["//visibility:public"],
     runtime_deps = [
         ":lib",
     ],

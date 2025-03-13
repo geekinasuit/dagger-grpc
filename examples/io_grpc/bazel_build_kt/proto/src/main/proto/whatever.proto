@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_package = "com.geekinasuit.daggergrpc.iogrpc.example.armeria.api";
+option java_outer_classname = "Whatever";
+option objc_class_prefix = "HW";
+
+package geekinasuit.daggergrpc.iogrpc.example.armeria.api;
+
+message WhateverRequest {
+  bool whatever = 1;
+}
+
+message WhateverResponse {
+  bool suceeded = 2;
+}
+
+/**
+ * A simple service for demonstration
+ */
+service WhateverService {
+  /** A simple request/response */
+  rpc Whatever(WhateverRequest) returns (WhateverResponse) {}
+}
+

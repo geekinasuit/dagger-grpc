@@ -6,14 +6,15 @@ load("@grpc-java//:java_grpc_library.bzl", "java_grpc_library")
 kt_jvm_library(
     name = "lib",
     srcs = glob(["src/main/kotlin/**/*.kt"]),
+    visibility = ["//visibility:public"],
     runtime_deps = [
         "@maven//:org_slf4j_slf4j_jdk14",
     ],
     deps = [
-        "//api",
-        "//io_grpc/example/proto:grpc",
-        "//third_party/dagger",
-        "//util/armeria",
+        "//proto:grpc",
+        "@dagger-grpc//api",
+        "@dagger-grpc//third_party/dagger",  # Use your own dagger mapping in your repo
+        "@dagger-grpc//util/armeria",
         "@maven//:com_google_guava_guava",
         "@maven//:com_linecorp_armeria_armeria_grpc",
         "@maven//:io_github_oshai_kotlin_logging_jvm",
@@ -22,9 +23,10 @@ kt_jvm_library(
     ],
 )
 
-java_binary(
+kt_jvm_binary(
     name = "armeria",
     main_class = "com.geekinasuit.daggergrpc.iogrpc.example.armeria.ExampleKt",
+    visibility = ["//visibility:public"],
     runtime_deps = [
         ":lib",
     ],

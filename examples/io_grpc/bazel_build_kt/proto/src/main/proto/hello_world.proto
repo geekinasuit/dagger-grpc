@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_package = "com.geekinasuit.daggergrpc.iogrpc.example.armeria.api";
+option java_outer_classname = "HelloWorld";
+option objc_class_prefix = "HW";
+
+package geekinasuit.daggergrpc.iogrpc.example.armeria.api;
+
+message SayHelloRequest {
+  string hello_text = 1;
+}
+
+message SayHelloResponse {
+  string response_text = 2;
+}
+
+message SayGoodbyeRequest {
+  string goodbye_text = 1;
+}
+
+message SayGoodbyeResponse {
+  string response_text = 2;
+}
+/**
+ * A simple set of services for demonstration
+ */
+service HelloWorldService {
+  /** A simple request/response */
+  rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {}
+  /** A simple second API. */
+  rpc SayGoodbye(SayGoodbyeRequest) returns (SayGoodbyeResponse) {}
+}
+
