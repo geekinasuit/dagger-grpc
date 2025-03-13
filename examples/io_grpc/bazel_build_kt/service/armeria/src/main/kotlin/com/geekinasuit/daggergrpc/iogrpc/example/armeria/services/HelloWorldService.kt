@@ -1,4 +1,4 @@
-package com.geekinasuit.daggergrpc.iogrpc.example.armeria
+package com.geekinasuit.daggergrpc.iogrpc.example.armeria.services
 
 import com.geekinasuit.daggergrpc.api.GrpcCallContext
 import com.geekinasuit.daggergrpc.api.GrpcCallScope
@@ -19,7 +19,7 @@ import javax.inject.Inject
 class HelloWorldService @Inject constructor(private val context: GrpcCallContext) : AsyncService {
   override fun sayHello(
     request: SayHelloRequest,
-    responseObserver: StreamObserver<SayHelloResponse>
+    responseObserver: StreamObserver<SayHelloResponse>,
   ) {
     val headers: Metadata =
       try {
@@ -36,7 +36,7 @@ class HelloWorldService @Inject constructor(private val context: GrpcCallContext
 
   override fun sayGoodbye(
     request: SayGoodbyeRequest,
-    responseObserver: StreamObserver<SayGoodbyeResponse>
+    responseObserver: StreamObserver<SayGoodbyeResponse>,
   ) {
     val responseText = "Goodbye: ${request.goodbyeText}"
     val response = SayGoodbyeResponse.newBuilder().setResponseText(responseText).build()

@@ -1,12 +1,12 @@
 package com.geekinasuit.daggergrpc.iogrpc.example.armeria.dagger
 
 import com.geekinasuit.daggergrpc.api.GrpcCallScope
-import javax.annotation.Generated
-import com.geekinasuit.daggergrpc.iogrpc.example.armeria.HelloWorldService
-import com.geekinasuit.daggergrpc.iogrpc.example.armeria.WhateverService
+import com.geekinasuit.daggergrpc.iogrpc.example.armeria.services.HelloWorldService
+import com.geekinasuit.daggergrpc.iogrpc.example.armeria.services.WhateverService
 import dagger.Subcomponent
+import javax.annotation.Generated
 
-@Generated
+@Generated("to be generated")
 @Subcomponent(modules = [GrpcCallScopeGraphModule::class])
 @GrpcCallScope
 interface GrpcCallScopeGraph {
@@ -18,4 +18,3 @@ interface GrpcCallScopeGraph {
     fun callScope(): GrpcCallScopeGraph
   }
 }
-

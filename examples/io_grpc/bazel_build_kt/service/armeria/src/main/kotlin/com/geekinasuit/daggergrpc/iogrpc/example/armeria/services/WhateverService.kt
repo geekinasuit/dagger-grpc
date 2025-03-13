@@ -1,4 +1,4 @@
-package com.geekinasuit.daggergrpc.iogrpc.example.armeria
+package com.geekinasuit.daggergrpc.iogrpc.example.armeria.services
 
 import com.geekinasuit.daggergrpc.api.GrpcCallScope
 import com.geekinasuit.daggergrpc.api.GrpcServiceHandler
@@ -10,10 +10,10 @@ import javax.inject.Inject
 
 @GrpcServiceHandler(WhateverServiceGrpc::class)
 @GrpcCallScope
-class WhateverService @Inject constructor(): WhateverServiceGrpc.AsyncService {
+class WhateverService @Inject constructor() : WhateverServiceGrpc.AsyncService {
   override fun whatever(
     request: WhateverRequest,
-    responseObserver: StreamObserver<WhateverResponse>
+    responseObserver: StreamObserver<WhateverResponse>,
   ) {
     val response = WhateverResponse.newBuilder().setSuceeded(request.whatever).build()
     responseObserver.onNext(response)
