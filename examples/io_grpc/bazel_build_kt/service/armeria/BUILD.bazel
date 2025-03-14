@@ -1,32 +1,28 @@
-load("@rules_java//java:defs.bzl", "java_binary", "java_library")
+load("@io_bazel_rules_kotlin//kotlin:jvm.bzl", "kt_jvm_binary", "kt_jvm_library")
 
-java_library(
+kt_jvm_library(
     name = "lib",
-    srcs = glob(["src/main/kotlin/**/*.java"]),
+    srcs = glob(["src/main/kotlin/**/*.kt"]),
     visibility = ["//visibility:public"],
     runtime_deps = [
         "@maven//:org_slf4j_slf4j_jdk14",
     ],
     deps = [
         "//proto:grpc",
-        "//proto:proto_jvm",
         "@dagger-grpc//api",
-        "@dagger-grpc//third_party/dagger",  # This target happens to pair the raw dagger dep with the processor.
+        "@dagger-grpc//third_party/dagger",  # Use your own dagger mapping in your repo
         "@dagger-grpc//util/armeria",
-        "@grpc-java//api",
-        "@grpc-java//stub",
         "@maven//:com_google_guava_guava",
-        "@maven//:com_linecorp_armeria_armeria",
         "@maven//:com_linecorp_armeria_armeria_grpc",
         "@maven//:io_github_oshai_kotlin_logging_jvm",
         "@maven//:io_grpc_grpc_protobuf_lite",
-        "@protobuf//java/core",
+        "@com_google_protobuf//java/core",
     ],
 )
 
-java_binary(
+kt_jvm_binary(
     name = "armeria",
-    main_class = "com.geekinasuit.daggergrpc.iogrpc.example.armeria.ExampleServer",
+    main_class = "com.geekinasuit.daggergrpc.iogrpc.example.armeria.ExampleKt",
     visibility = ["//visibility:public"],
     runtime_deps = [
         ":lib",

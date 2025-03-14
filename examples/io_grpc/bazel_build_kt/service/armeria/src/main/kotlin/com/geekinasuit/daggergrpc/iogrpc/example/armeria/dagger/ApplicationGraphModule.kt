@@ -7,5 +7,3 @@ import dagger.Provides
 object ApplicationGraphModule {
   @Provides fun callGraphSupplier(impl: ApplicationGraph): GrpcCallScopeGraph.Supplier = impl
 }
-
-data class Blah(val blah: String)

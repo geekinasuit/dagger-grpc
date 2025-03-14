@@ -3,5 +3,81 @@ module(
     version = "0.1",
 )
 
+bazel_dep(name = "dagger-grpc", version = "0.1")
+local_path_override(
+    module_name = "dagger-grpc",
+    path = "../../..",
+)
+
+# Most of these with repo_name only are using that to support grpc-kotlin, which doesn't
+# use bazelmod, and is depending on old names of things.
+# Likeiwse the http_archives, which purely support grpc-kotlin
+
+bazel_dep(name = "rules_java", version = "8.9.0")
 bazel_dep(name = "bazel_skylib", version = "1.7.1")
-bazel_dep(name = "protobuf", version = "23.1")
+bazel_dep(name = "rules_kotlin", version = "2.1.0", repo_name = "io_bazel_rules_kotlin")
+bazel_dep(name = "rules_jvm_external", version = "6.7")
+bazel_dep(name = "protobuf", version = "23.1", repo_name = "com_google_protobuf")
+bazel_dep(name = "grpc", version = "1.69.0")
+
+# used by GRPC-Kotlin
+bazel_dep(name = "grpc-java", version = "1.69.0", repo_name = "io_grpc_grpc_java")
+bazel_dep(name = "rules_proto_grpc_java", version = "5.0.1")
+
+http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "com_github_grpc_grpc_kotlin",
+    sha256 = "a218306e681318cbbc3b0e72ec9fe1241b2166b735427a51a3c8921c3250216f",
+    strip_prefix = "grpc-kotlin-1.4.2",
+    url = "https://github.com/grpc/grpc-kotlin/archive/refs/tags/v1.4.2.zip",
+)
+
+http_archive(
+    name = "grpc-kotlin",
+    sha256 = "a218306e681318cbbc3b0e72ec9fe1241b2166b735427a51a3c8921c3250216f",
+    strip_prefix = "grpc-kotlin-1.4.2",
+    url = "https://github.com/grpc/grpc-kotlin/archive/refs/tags/v1.4.2.zip",
+)
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+maven.artifact(
+    testonly = True,
+    artifact = "truth",
+    group = "com.google.truth",
+    version = "1.4.4",
+)
+maven.artifact(
+    testonly = True,
+    artifact = "junit",
+    group = "junit",
+    version = "4.13.2",
+)
+maven.install(
+    artifacts = [
+        "com.google.dagger:dagger-compiler:2.55",
+        "com.google.dagger:dagger:2.55",
+        "com.google.protobuf:protobuf-java:4.29.3",
+        "com.google.protobuf:protobuf-kotlin:4.29.3",
+        "com.linecorp.armeria:armeria-grpc:1.26.4",
+        "com.linecorp.armeria:armeria:1.26.4",
+        "io.github.oshai:kotlin-logging-jvm:5.1.0",
+        "io.grpc:grpc-kotlin-stub:1.4.1",
+        "io.grpc:grpc-netty-shaded:1.71.0",
+        "io.grpc:grpc-protobuf:1.71.0",
+        "io.grpc:grpc-stub:1.71.0",
+        "javax.inject:javax.inject:1",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1",
+    ],
+    generate_compat_repositories = True,
+    repositories = [
+        "m2local",
+        "https://maven.google.com",
+        "https://repo1.maven.org/maven2",
+    ],
+)
+use_repo(
+    maven,
+    "com_google_guava_guava",  # To support a weird internal reference in grpc-kotlin
+    "maven",
+)

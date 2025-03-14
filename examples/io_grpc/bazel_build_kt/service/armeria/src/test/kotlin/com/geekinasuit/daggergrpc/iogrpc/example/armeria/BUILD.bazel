@@ -1,8 +1,8 @@
-load("@rules_java//java:defs.bzl", "java_test")
+load("@io_bazel_rules_kotlin//kotlin:jvm.bzl", "kt_jvm_test")
 
-java_test(
+kt_jvm_test(
     name = "ServiceTest",
-    srcs = ["ServiceTest.java"],
+    srcs = ["ServiceTest.kt"],
     deps = [
         "//service/armeria:lib",
         "@maven//:junit_junit",
