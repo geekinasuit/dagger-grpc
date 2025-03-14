@@ -42,6 +42,7 @@ maven.install(
         "io.grpc:grpc-stub:1.71.0",
         "javax.inject:javax.inject:1",
     ],
+    fetch_sources = True,
     repositories = [
         "m2local",
         "https://maven.google.com",

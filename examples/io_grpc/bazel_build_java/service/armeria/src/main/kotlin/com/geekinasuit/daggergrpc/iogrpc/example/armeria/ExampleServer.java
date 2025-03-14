@@ -32,10 +32,10 @@ public class ExampleServer {
   }
 
   public static void main(String... args) {
-    try (Server server = ApplicationGraph.builder().build().server().setup()) {
-      CompletableFuture<Void> future = server.closeOnJvmShutdown();
-      future.thenRun(() -> log.info("Server has been stopped."));
-      server.start().join();
-    }
+    ApplicationGraph graph = ApplicationGraph.create();
+    Server server = graph.server().setup();
+    CompletableFuture<Void> future = server.closeOnJvmShutdown();
+    future.thenRun(() -> log.info("Server has been stopped."));
+    server.start().join();
   }
 }
