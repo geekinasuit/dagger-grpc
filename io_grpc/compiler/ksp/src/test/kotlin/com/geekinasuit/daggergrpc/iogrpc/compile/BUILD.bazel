@@ -21,6 +21,8 @@ proto_library(
     srcs = ["foo.proto"],
 )
 
+# Use java proto generation here, rather than Kotlin, since kotlin proto generation relies on the
+# java anyway, and the extra kotlin-isms aren't relevant to the code-gen here.
 java_proto_library(
     name = "proto_kt",
     protos = [":proto"],
