@@ -37,7 +37,7 @@ jobs:
           echo "matrix={\"include\": [$examples]}" >> "$GITHUB_OUTPUT"
           cat "$GITHUB_OUTPUT"
 
-  test_bazel_examples:
+  examples:
     needs: prepare_matrix
     runs-on: ubuntu-latest
     permissions:
