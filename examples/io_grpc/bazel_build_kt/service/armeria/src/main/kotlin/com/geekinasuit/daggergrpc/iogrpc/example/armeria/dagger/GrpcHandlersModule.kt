@@ -6,7 +6,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoSet
 import io.grpc.BindableService
+import javax.annotation.Generated
 
+@Generated("to be generated")
 @Module
 object GrpcHandlersModule {
   @Provides

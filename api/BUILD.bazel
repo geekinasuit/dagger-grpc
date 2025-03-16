@@ -5,6 +5,7 @@ package(default_visibility = ["//visibility:public"])
 kt_jvm_library(
     name = "api",
     srcs = glob(["src/main/kotlin/**/*.kt"]),
+    plugins = ["//third_party/dagger:dagger-compiler"],
     deps = [
         "//third_party/dagger",
         "@maven//:io_grpc_grpc_api",

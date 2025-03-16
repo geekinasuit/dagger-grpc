@@ -1,5 +1,4 @@
 load("@com_google_protobuf//bazel:proto_library.bzl", "proto_library")
-load("@rules_proto_grpc_java//:java_proto_library.bzl", "java_proto_library")
 load("@grpc-kotlin//:kt_jvm_grpc.bzl", "kt_jvm_grpc_library", "kt_jvm_proto_library")
 
 package(default_visibility = ["//visibility:public"])

@@ -1,0 +1,33 @@
+load("@rules_kotlin//kotlin:jvm.bzl", "kt_jvm_test")
+load("@protobuf//bazel:proto_library.bzl", "proto_library")
+load("@grpc-java//:java_grpc_library.bzl", "java_grpc_library")
+load("@rules_proto_grpc_java//:java_proto_library.bzl", "java_proto_library")
+
+kt_jvm_test(
+    name = "DaggerGrpcProcessorTest",
+    srcs = ["DaggerGrpcProcessorTest.kt"],
+    associates = ["//io_grpc/compiler/ksp:compiler"],
+    deps = [
+        ":grpc",
+        "@maven//:com_github_tschuchortdev_kotlin_compile_testing",
+        "@maven//:com_github_tschuchortdev_kotlin_compile_testing_ksp",
+        "@maven//:com_google_truth_truth",
+        "@maven//:junit_junit",
+    ],
+)
+
+proto_library(
+    name = "proto",
+    srcs = ["foo.proto"],
+)
+
+java_proto_library(
+    name = "proto_kt",
+    protos = [":proto"],
+)
+
+java_grpc_library(
+    name = "grpc",
+    srcs = [":proto"],
+    deps = [":proto_kt"],
+)
