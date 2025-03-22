@@ -2,14 +2,14 @@ load("@rules_kotlin//kotlin:jvm.bzl", "kt_jvm_library")
 load("@rules_kotlin//kotlin:core.bzl", "kt_ksp_plugin")
 
 kt_jvm_library(
-    name = "compiler",
+    name = "compile",
     srcs = glob(["src/main/kotlin/**/*.kt"]),
+    associates = ["//io_grpc/compiler/common"],
     resources = glob(["src/main/resources/**/*"]),
     visibility = ["//visibility:public"],
     deps = [
         "//api",
         "@maven//:com_google_devtools_ksp_symbol_processing_api",
-        "@maven//:com_google_guava_guava",
         "@maven//:com_squareup_kotlinpoet_jvm",
         "@maven//:com_squareup_kotlinpoet_ksp",
     ],
@@ -20,6 +20,6 @@ kt_ksp_plugin(
     processor_class = "com.geekinasuit.daggergrpc.iogrpc.compile.DaggerGrpcProcessor",
     visibility = ["//visibility:public"],
     deps = [
-        ":compiler",
+        ":compile",
     ],
 )

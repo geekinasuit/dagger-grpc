@@ -4,13 +4,12 @@ load("@grpc-java//:java_grpc_library.bzl", "java_grpc_library")
 load("@rules_proto_grpc_java//:java_proto_library.bzl", "java_proto_library")
 
 kt_jvm_test(
-    name = "DaggerGrpcSymbolProcessorTest",
-    srcs = ["DaggerGrpcSymbolProcessorTest.kt"],
-    associates = ["//io_grpc/compiler/ksp:compile"],
+    name = "DaggerGrpcAPTProcessorTest",
+    srcs = ["DaggerGrpcAPTProcessorTest.kt"],
+    associates = ["//io_grpc/compiler/apt"],
     deps = [
         ":grpc",
-        "@maven//:com_github_tschuchortdev_kotlin_compile_testing",
-        "@maven//:com_github_tschuchortdev_kotlin_compile_testing_ksp",
+        "@maven//:com_google_testing_compile_compile_testing",
         "@maven//:com_google_truth_truth",
         "@maven//:junit_junit",
     ],

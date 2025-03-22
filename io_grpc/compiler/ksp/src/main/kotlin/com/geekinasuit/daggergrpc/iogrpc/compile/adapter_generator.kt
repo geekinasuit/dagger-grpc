@@ -1,6 +1,5 @@
 package com.geekinasuit.daggergrpc.iogrpc.compile
 
-import com.geekinasuit.daggergrpc.iogrpc.compile.DaggerGrpcProcessor.HandlerMetadata
 import com.google.devtools.ksp.processing.Dependencies
 import com.google.devtools.ksp.processing.SymbolProcessorEnvironment
 import com.squareup.kotlinpoet.AnnotationSpec
@@ -26,7 +25,6 @@ fun SymbolProcessorEnvironment.generateAdapter(md: HandlerMetadata) {
 }
 
 fun SymbolProcessorEnvironment.doGenerateAdapter(md: HandlerMetadata): FileSpec {
-  md.ast.getAllFunctions()
   logger.info("Generating adapter ${md.adapterName}")
   logger.info(md.toString())
   val serviceInterfaceProviderSpec =
@@ -42,7 +40,7 @@ fun SymbolProcessorEnvironment.doGenerateAdapter(md: HandlerMetadata): FileSpec 
       )
       .addAnnotation(
         AnnotationSpec.builder(Generated::class)
-          .addMember("\"${DaggerGrpcProcessor::class.qualifiedName}\"")
+          .addMember("\"${DaggerGrpcSymbolProcessor::class.qualifiedName}\"")
           .build()
       )
       .primaryConstructor(
