@@ -14,7 +14,7 @@ public interface ApplicationGraph extends GrpcCallScopeGraph.Supplier {
     ApplicationGraph build();
   }
 
-  static ApplicationGraph create() {
-    return DaggerApplicationGraph.create();
+  static ApplicationGraph.Builder builder() {
+    return DaggerApplicationGraph.builder();
   }
 }

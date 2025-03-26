@@ -32,10 +32,17 @@ public class ExampleServer {
   }
 
   public static void main(String... args) {
-    ApplicationGraph graph = ApplicationGraph.create();
+    // Build the outer object application-scoped object graph.
+    ApplicationGraph graph = ApplicationGraph.builder().build();
+
+    // Get the dagger-injected server and execute setup.
     Server server = graph.server().setup();
+
+    // Register a shutdown hook to kill the server properly if the JVM is going to shut down.
     CompletableFuture<Void> future = server.closeOnJvmShutdown();
     future.thenRun(() -> log.info("Server has been stopped."));
+
+    // start the server and block the main method on the server's main thread.
     server.start().join();
   }
 }
