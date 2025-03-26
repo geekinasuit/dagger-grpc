@@ -11,9 +11,11 @@ kt_jvm_library(
     visibility = ["//visibility:public"],
     deps = [
         "//api",
+        "//ksp-apt-bridge",
         "@maven//:com_google_auto_auto_common",
         "@maven//:com_google_auto_service_auto_service_annotations",
         "@maven//:com_google_devtools_ksp_symbol_processing_api",
+        "@maven//:com_google_guava_guava",
         "@maven//:com_squareup_javapoet",
     ],
 )

@@ -7,6 +7,11 @@ kt_jvm_test(
     name = "DaggerGrpcAPTProcessorTest",
     srcs = ["DaggerGrpcAPTProcessorTest.kt"],
     associates = ["//io_grpc/compiler/apt"],
+    jvm_flags = [
+        "--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED",
+        "--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED",
+        "--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
+    ],
     deps = [
         ":grpc",
         "@maven//:com_google_testing_compile_compile_testing",

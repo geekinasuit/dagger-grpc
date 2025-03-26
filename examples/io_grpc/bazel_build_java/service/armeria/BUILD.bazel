@@ -5,6 +5,7 @@ java_library(
     srcs = glob(["src/main/kotlin/**/*.java"]),
     plugins = [
         "@dagger-grpc//third_party/dagger:dagger-compiler",
+        "@dagger-grpc//io_grpc/compiler/apt:plugin",
     ],
     visibility = ["//visibility:public"],
     runtime_deps = [
