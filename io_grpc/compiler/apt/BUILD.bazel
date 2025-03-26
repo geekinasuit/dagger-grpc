@@ -1,1 +1,30 @@
-# Placeholder
+load("@rules_kotlin//kotlin:jvm.bzl", "kt_jvm_library")
+load("@rules_java//java:defs.bzl", "java_plugin")
+
+kt_jvm_library(
+    name = "apt",
+    srcs = glob(["src/main/kotlin/**/*.kt"]),
+    associates = ["//io_grpc/compiler/common"],
+    plugins = [
+        "//third_party/processors:auto-service",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//api",
+        "//ksp-apt-bridge",
+        "@maven//:com_google_auto_auto_common",
+        "@maven//:com_google_auto_service_auto_service_annotations",
+        "@maven//:com_google_devtools_ksp_symbol_processing_api",
+        "@maven//:com_google_guava_guava",
+        "@maven//:com_squareup_javapoet",
+    ],
+)
+
+java_plugin(
+    name = "plugin",
+    processor_class = "com.geekinasuit.daggergrpc.iogrpc.compile.DaggerGrpcAPTProcessor",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":apt",
+    ],
+)

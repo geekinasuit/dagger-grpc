@@ -3,7 +3,7 @@ package com.geekinasuit.daggergrpc.iogrpc.compile
 import com.tschuchort.compiletesting.SourceFile
 import org.junit.Test
 
-class DaggerGrpcProcessorTest {
+class DaggerGrpcSymbolProcessorTest {
   private val handlerSource =
     SourceFile.kotlin(
       "FooService.kt",

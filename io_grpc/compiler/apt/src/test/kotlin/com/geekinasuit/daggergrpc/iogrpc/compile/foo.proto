@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_package = "foo";
+option java_outer_classname = "Foo";
+
+package foo;
+
+message FooRequest {
+  bool foo = 1;
+}
+
+message FooResponse {
+  bool suceeded = 2;
+}
+
+/**
+ * A simple service for demonstration
+ */
+service FooService {
+  /** A simple request/response */
+  rpc foo(FooRequest) returns (FooResponse) {}
+}
+

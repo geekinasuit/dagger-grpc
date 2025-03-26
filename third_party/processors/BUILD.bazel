@@ -1,0 +1,10 @@
+load("@rules_java//java:defs.bzl", "java_plugin")
+
+java_plugin(
+    name = "auto-service",
+    processor_class = "com.google.auto.service.processor.AutoServiceProcessor",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@maven//:com_google_auto_service_auto_service",
+    ],
+)

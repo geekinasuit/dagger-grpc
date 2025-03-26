@@ -1,1 +1,1 @@
-com.geekinasuit.daggergrpc.iogrpc.compile.DaggerGrpcProcessorProvider
+com.geekinasuit.daggergrpc.iogrpc.compile.DaggerGrpcSymbolProcessorProvider

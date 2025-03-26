@@ -48,6 +48,6 @@ maven.install(
         "https://maven.google.com",
         "https://repo1.maven.org/maven2",
     ],
-    strict_visibility = True,
+    #strict_visibility = True,
 )
 use_repo(maven, "maven")
