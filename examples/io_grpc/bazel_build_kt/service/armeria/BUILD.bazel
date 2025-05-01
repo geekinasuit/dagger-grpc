@@ -5,7 +5,7 @@ kt_jvm_library(
     srcs = glob(["src/main/kotlin/**/*.kt"]),
     plugins = [
         "@dagger-grpc//io_grpc/compiler/ksp:plugin",
-        "@dagger-grpc//third_party/dagger:dagger-compiler",
+        "//:dagger-compiler",
     ],
     visibility = ["//visibility:public"],
     runtime_deps = [
