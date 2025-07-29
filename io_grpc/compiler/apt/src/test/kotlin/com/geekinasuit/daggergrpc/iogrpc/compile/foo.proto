@@ -10,7 +10,7 @@ message FooRequest {
 }
 
 message FooResponse {
-  bool suceeded = 2;
+  bool succeeded = 2;
 }
 
 /**

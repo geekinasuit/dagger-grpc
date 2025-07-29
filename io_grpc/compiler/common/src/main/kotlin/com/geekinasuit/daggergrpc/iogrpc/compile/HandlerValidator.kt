@@ -6,9 +6,9 @@ import com.google.devtools.ksp.symbol.KSAnnotation
 import com.google.devtools.ksp.symbol.KSClassDeclaration
 import com.google.devtools.ksp.symbol.KSType
 
-class Validator(private val logger: KSPLogger) {
+class HandlerValidator(logger: KSPLogger) : AbstractValidator(logger) {
   internal fun validate(clazz: KSClassDeclaration): HandlerMetadata? {
-    val annotation = validateAnnotation(clazz) ?: return null
+    val annotation = getAnnotation(clazz, GrpcServiceHandler::class) ?: return null
     val grpcClass = validateGrpcClass(annotation) ?: return null
     val serviceInterface = validateServiceInterface(grpcClass) ?: return null
     logger.info("Validating $clazz")
@@ -39,15 +39,5 @@ class Validator(private val logger: KSPLogger) {
       ?.let { (it as KSType).declaration }
       ?.let { it as KSClassDeclaration }
       .also { if (it == null) logger.error("grpcWrapperType was null.", wrapperTypeParameter) }
-  }
-
-  private fun validateAnnotation(clazz: KSClassDeclaration): KSAnnotation? {
-    val annotation =
-      clazz.annotations.firstOrNull {
-        it.shortName.asString() == GrpcServiceHandler::class.simpleName
-      }
-    return annotation.also {
-      if (it == null) logger.error("No GrpcServiceHandler annotation found.", clazz)
-    }
   }
 }

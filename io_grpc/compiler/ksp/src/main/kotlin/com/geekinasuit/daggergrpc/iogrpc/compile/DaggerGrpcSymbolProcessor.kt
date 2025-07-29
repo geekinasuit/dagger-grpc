@@ -10,7 +10,7 @@ import com.google.devtools.ksp.symbol.KSClassDeclaration
 class DaggerGrpcSymbolProcessor(private val env: SymbolProcessorEnvironment) : SymbolProcessor {
 
   override fun process(resolver: Resolver): List<KSAnnotated> {
-    val validator = Validator(env.logger)
+    val validator = HandlerValidator(env.logger)
     val symbols = resolver.getSymbolsWithAnnotation(GrpcServiceHandler::class.qualifiedName!!)
     val unprocessable = mutableListOf<KSAnnotated>()
     val handlerMetadatas =

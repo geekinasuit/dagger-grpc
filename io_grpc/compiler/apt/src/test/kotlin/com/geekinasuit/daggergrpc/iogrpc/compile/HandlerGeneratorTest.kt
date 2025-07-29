@@ -4,11 +4,9 @@ import com.google.common.truth.Truth.assertAbout
 import com.google.common.truth.Truth.assertThat
 import com.google.testing.compile.CompilationSubject.compilations
 import com.google.testing.compile.Compiler.javac
-import com.google.testing.compile.JavaFileObjects
-import javax.tools.JavaFileObject
 import org.junit.Test
 
-class DaggerGrpcAPTProcessorTest {
+class HandlerGeneratorTest {
   @Test
   fun testSimpleCompilation() {
     val src =
@@ -93,8 +91,6 @@ class DaggerGrpcAPTProcessorTest {
       .that(result)
       .hadErrorContaining("GrpcServiceHandler must only be used on a class")
   }
-}
+  // TODO(cgruber): Add more validations and tests for those validations.
 
-class Source(val fq: String) {
-  fun withSource(src: String): JavaFileObject = JavaFileObjects.forSourceString(fq, src)
 }

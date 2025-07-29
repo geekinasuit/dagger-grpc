@@ -1,23 +1,52 @@
-load("@rules_kotlin//kotlin:jvm.bzl", "kt_jvm_test")
+load("@rules_kotlin//kotlin:jvm.bzl", "kt_jvm_library", "kt_jvm_test")
 load("@protobuf//bazel:proto_library.bzl", "proto_library")
 load("@grpc-java//:java_grpc_library.bzl", "java_grpc_library")
 load("@rules_proto_grpc_java//:java_proto_library.bzl", "java_proto_library")
 
+# Needed for the Compile-Testing framework to work on Java16+, as it uses javac internals.
+JVM_MODULE_FLAGS = [
+    "--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED",
+    "--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED",
+    "--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
+]
+
+# Don't do this in real life, except for external things, as anything in this list will (if changed) result in
+# build cache misses for every test. Only use true-boiler-plate deps here.
+STANDARD_TEST_DEPS = [
+    "@maven//:com_google_testing_compile_compile_testing",
+    "@maven//:com_google_truth_truth",
+    "@maven//:junit_junit",
+]
+
+kt_jvm_library(
+    name = "util",
+    srcs = ["utils.kt"],
+    deps = STANDARD_TEST_DEPS,
+)
+
 kt_jvm_test(
-    name = "DaggerGrpcAPTProcessorTest",
-    srcs = ["DaggerGrpcAPTProcessorTest.kt"],
+    name = "HandlerGeneratorTest",
+    srcs = ["HandlerGeneratorTest.kt"],
     associates = ["//io_grpc/compiler/apt"],
-    jvm_flags = [
-        "--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED",
-        "--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED",
-        "--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED",
-    ],
+    jvm_flags = JVM_MODULE_FLAGS,
     deps = [
         ":grpc",
-        "@maven//:com_google_testing_compile_compile_testing",
-        "@maven//:com_google_truth_truth",
-        "@maven//:junit_junit",
-    ],
+        ":util",
+    ] + STANDARD_TEST_DEPS,
+)
+
+kt_jvm_test(
+    name = "ModuleGeneratorTest",
+    srcs = ["ModuleGeneratorTest.kt"],
+    associates = ["//io_grpc/compiler/apt"],
+    jvm_flags = JVM_MODULE_FLAGS,
+    deps = [
+        ":grpc",
+        ":proto_kt",
+        ":util",
+        "//util/armeria",
+        "@maven//:com_google_dagger_dagger_compiler",
+    ] + STANDARD_TEST_DEPS,
 )
 
 proto_library(

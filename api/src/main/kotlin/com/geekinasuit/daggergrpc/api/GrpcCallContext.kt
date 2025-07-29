@@ -49,7 +49,7 @@ constructor(private val ctx: dagger.Lazy<Pair<Metadata, ServerCall<*, *>>>) {
     override fun <A, B> interceptCall(
       call: ServerCall<A, B>,
       headers: Metadata,
-      next: ServerCallHandler<A, B>
+      next: ServerCallHandler<A, B>,
     ): ServerCall.Listener<A> {
       callContextThreadLocal.set(Pair(headers, call))
       return next.startCall(call, headers)

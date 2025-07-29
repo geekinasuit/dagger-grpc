@@ -15,16 +15,22 @@ import io.grpc.Metadata;
 import io.grpc.stub.StreamObserver;
 import java.util.logging.Logger;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 @GrpcServiceHandler(grpcWrapperType = HelloWorldServiceGrpc.class)
 @GrpcCallScope
 public class HelloWorldService implements AsyncService {
   private static final Logger log = Logger.getLogger(HelloWorldService.class.toString());
   private final GrpcCallContext context;
+  private final String appString;
+  private final Integer calls;
 
   @Inject
-  HelloWorldService(GrpcCallContext context) {
+  HelloWorldService(
+      GrpcCallContext context, @Named("app") String appString, @Named("call") Integer calls) {
     this.context = context;
+    this.appString = appString;
+    this.calls = calls;
   }
 
   @Override
@@ -36,7 +42,10 @@ public class HelloWorldService implements AsyncService {
       log.log(SEVERE, "Exception fetching grpc call context headers.", e);
       headers = new Metadata();
     }
-    String responseText = "Hello: " + req.getHelloText() + "\nHeaders: $headers";
+    String responseText =
+        String.format(
+            "Hello: %s (%s)\nCalls: %d\nHeaders: %s",
+            req.getHelloText(), appString, calls, headers);
     SayHelloResponse response = SayHelloResponse.newBuilder().setResponseText(responseText).build();
     resp.onNext(response);
     resp.onCompleted();

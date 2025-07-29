@@ -1,5 +1,6 @@
 package com.geekinasuit.daggergrpc.iogrpc.compile
 
+import com.geekinasuit.daggergrpc.api.GrpcApplication
 import com.geekinasuit.daggergrpc.api.GrpcServiceHandler
 import com.geekinasuit.kspbridge.apt.APTClassDeclaration
 import com.geekinasuit.kspbridge.apt.APTLogger
@@ -14,7 +15,10 @@ import javax.lang.model.element.TypeElement
 @AutoService(Processor::class)
 class DaggerGrpcAPTProcessor : AbstractProcessor() {
   override fun getSupportedAnnotationTypes(): MutableSet<String> =
-    mutableSetOf(GrpcServiceHandler::class.java.canonicalName)
+    mutableSetOf(
+      GrpcServiceHandler::class.java.canonicalName,
+      GrpcApplication::class.java.canonicalName,
+    )
 
   private lateinit var logger: APTLogger
 
@@ -29,9 +33,10 @@ class DaggerGrpcAPTProcessor : AbstractProcessor() {
     roundEnv: RoundEnvironment,
   ): Boolean {
     logger.info("Beginning GrpcDaggerAPT Processor Run")
-    val validator = Validator(logger)
-    val elements = annotations.flatMap(roundEnv::getElementsAnnotatedWith)
+    val handlerValidator = HandlerValidator(logger)
+    val elements = roundEnv.getElementsAnnotatedWith(GrpcServiceHandler::class.java)
     val adapterGenerator = AdapterGenerator(roundEnv, logger, processingEnv.filer)
+    val moduleGenerator = ModuleGenerator(roundEnv, logger, processingEnv.filer)
     val handlerMetadatas =
       elements
         .onEach {
@@ -41,13 +46,27 @@ class DaggerGrpcAPTProcessor : AbstractProcessor() {
         .filter { it.kind == ElementKind.CLASS }
         .filterIsInstance<TypeElement>()
         .map(::APTClassDeclaration)
-        .map(validator::validate)
-        .filterNotNull()
-        .onEach(adapterGenerator::generateAdapter)
+        .mapNotNull(handlerValidator::validate)
+        .onEach(adapterGenerator::generate)
+        .toList()
 
-    //    if (handlerMetadatas.toList().isEmpty()) {
-    //      logger.warn("No valid classes were annotated with @GrpcServiceHandler")
-    //    } else env.generateModule(handlerMetadatas)
+    if (handlerMetadatas.isEmpty()) {
+      logger.warn("No valid classes were annotated with @GrpcServiceHandler")
+    } else {
+      val appValidator = ApplicationValidator(logger, handlerMetadatas)
+      val appMetadata =
+        roundEnv
+          .getElementsAnnotatedWith(GrpcApplication::class.java)
+          .asSequence()
+          .filterIsInstance<TypeElement>()
+          .map(::APTClassDeclaration)
+          .firstOrNull()
+          ?.let(appValidator::validate)
+          ?.also(moduleGenerator::generate)
+          ?: run {
+            return true
+          }
+    }
     return true
   }
 }

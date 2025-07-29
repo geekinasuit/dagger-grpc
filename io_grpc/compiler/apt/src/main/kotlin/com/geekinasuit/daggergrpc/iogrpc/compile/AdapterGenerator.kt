@@ -2,7 +2,6 @@ package com.geekinasuit.daggergrpc.iogrpc.compile
 
 import com.geekinasuit.kspbridge.apt.APTClassDeclaration
 import com.geekinasuit.kspbridge.apt.APTLogger
-import com.squareup.javapoet.AnnotationSpec
 import com.squareup.javapoet.ClassName
 import com.squareup.javapoet.FieldSpec
 import com.squareup.javapoet.JavaFile
@@ -12,12 +11,12 @@ import com.squareup.javapoet.TypeSpec
 import io.grpc.ServerServiceDefinition
 import java.util.concurrent.Callable
 import javax.annotation.processing.Filer
-import javax.annotation.processing.Generated
 import javax.annotation.processing.RoundEnvironment
 import javax.lang.model.element.Modifier
 
-class AdapterGenerator(val env: RoundEnvironment, val logger: APTLogger, val filer: Filer) {
-  fun generateAdapter(md: HandlerMetadata) {
+class AdapterGenerator(env: RoundEnvironment, logger: APTLogger, filer: Filer) :
+  Generator<HandlerMetadata>(env, logger, filer) {
+  override fun generate(md: HandlerMetadata) {
     val file = doGenerateAdapter(md)
     logger.info(file.writeToString())
     file.writeTo(filer)
@@ -25,7 +24,6 @@ class AdapterGenerator(val env: RoundEnvironment, val logger: APTLogger, val fil
 
   fun doGenerateAdapter(md: HandlerMetadata): JavaFile {
     logger.info("Generating adapter ${md.adapterName}")
-    logger.info(md.toString())
 
     val serviceInterfaceProviderSpec =
       ParameterizedTypeName.get(
@@ -49,11 +47,7 @@ class AdapterGenerator(val env: RoundEnvironment, val logger: APTLogger, val fil
           listOf(ClassName.bestGuess("io.grpc.BindableService"), md.serviceInterface.toClassName())
         )
         .addField(serviceField)
-        .addAnnotation(
-          AnnotationSpec.builder(Generated::class.java)
-            .addMember("value", "\"${DaggerGrpcAPTProcessor::class.qualifiedName}\"")
-            .build()
-        )
+        .addAnnotation(generatedAnnotation())
         .addMethod(constructor)
 
     logger.info("Service interface: ${md.serviceInterface}")

@@ -2,7 +2,10 @@ load("@rules_java//java:defs.bzl", "java_binary", "java_library")
 
 java_library(
     name = "lib",
-    srcs = glob(["src/main/kotlin/**/*.java"]),
+    srcs = glob(
+        ["src/main/kotlin/**/*.java"],
+        exclude = ["src/main/kotlin/com/geekinasuit/daggergrpc/iogrpc/example/armeria/dagger/Grpc.java"],
+    ),
     plugins = [
         "@dagger-grpc//third_party/dagger:dagger-compiler",
         "@dagger-grpc//io_grpc/compiler/apt:plugin",

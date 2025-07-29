@@ -1,11 +1,10 @@
 package com.geekinasuit.daggergrpc.iogrpc.example.armeria;
 
-import static com.geekinasuit.daggergrpc.armeria.Armeria_grpc_utilKt.wrapService;
-
 import com.geekinasuit.daggergrpc.api.GrpcCallContext;
 import com.geekinasuit.daggergrpc.iogrpc.example.armeria.dagger.ApplicationGraph;
 import com.linecorp.armeria.server.Server;
 import com.linecorp.armeria.server.ServerBuilder;
+import com.linecorp.armeria.server.grpc.GrpcService;
 import io.grpc.BindableService;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
@@ -26,7 +25,11 @@ public class ExampleServer {
     log.info("startup");
     ServerBuilder builder = Server.builder().http(PORT);
     for (BindableService service : services) {
-      builder.service(wrapService(service, new GrpcCallContext.Interceptor()));
+      builder.service(
+          GrpcService.builder()
+              .addService(service)
+              .intercept(new GrpcCallContext.Interceptor())
+              .build());
     }
     return builder.build();
   }
