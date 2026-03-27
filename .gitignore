@@ -28,3 +28,8 @@ build/
 bazel-*
 .ijwb
 
+# Un-ignore files that are excluded by global gitignore for contributed repos
+!thoughts
+!.claude
+!AGENTS.md
+!CLAUDE.md
