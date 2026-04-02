@@ -3,7 +3,22 @@
     "allow": [
       "Bash(gh repo:*)",
       "Bash(jj status:*)",
-      "Bash(jj commit:*)"
+      "Bash(jj commit:*)",
+      "Bash(source bin/activate-hermit)",
+      "Bash(bazel build:*)",
+      "Bash(echo \"JAVA_HOME=$JAVA_HOME\")",
+      "Bash(/usr/libexec/java_home -V)",
+      "Bash(ls /Users/cgruber/Projects/github/geekinasuit/dagger-grpc/bin/*.hcl)",
+      "Bash(source /Users/cgruber/Projects/github/geekinasuit/dagger-grpc/bin/activate-hermit)",
+      "Bash(java -version)",
+      "Bash(JAVA_HOME=/Users/cgruber/Library/Java/JavaVirtualMachines/jdk-17.0.13_11.jdk/Contents/Home bazel build //...)",
+      "Bash(/Users/cgruber/Projects/github/geekinasuit/dagger-grpc/bin/bazel test:*)",
+      "Bash(/Users/cgruber/Projects/github/geekinasuit/dagger-grpc/bin/bazel build:*)",
+      "Bash(ls /Users/cgruber/Projects/github/geekinasuit/dagger-grpc/examples/io_grpc/bazel_build_java/WORKSPACE*)",
+      "Bash(ls /Users/cgruber/Projects/github/geekinasuit/dagger-grpc/WORKSPACE*)",
+      "Bash(jj log:*)",
+      "Bash(jj diff:*)",
+      "Bash(jj bookmark:*)"
     ]
   }
 }
