@@ -5,8 +5,8 @@ Source: `thoughts/shared/research/2026-03-27-codebase-overview.md`
 ## Priority / Dependency Order
 
 ```
-T00  Verify HEAD builds & tests          HIGH    (prerequisite for everything)
-  └─ T01  Fix Kotlin example Bzlmod      HIGH    (broken build)
+T00  Verify HEAD builds & tests          HIGH    ✅ DONE
+  └─ T01  Kotlin example Bzlmod hygiene  LOW     (builds fine; stale names only)
   └─ T08  Unblock KSP tests              HIGH    (prerequisite for KSP test work)
   └─ T02  Pin Kotlin toolchain           MEDIUM
   └─ T03  Proto version skew             LOW
@@ -31,7 +31,7 @@ T15  User-facing integration guide       LOW     (after T05+T06)
 | ID  | Title                                         | Priority | Phase        | Status |
 |-----|-----------------------------------------------|----------|--------------|--------|
 | T00 | Verify HEAD builds and tests pass             | HIGH     | infra        | open   |
-| T01 | Fix Kotlin example Bzlmod migration           | HIGH     | infra        | open   |
+| T01 | Update Kotlin example to canonical Bzlmod names (hygiene) | LOW | infra | open   |
 | T02 | Pin Kotlin toolchain version                  | MEDIUM   | infra        | open   |
 | T03 | Resolve proto version skew                    | LOW      | infra        | open   |
 | T04 | Design generated module shape (ADR)           | HIGH     | codegen      | open   |
