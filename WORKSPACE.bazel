@@ -1,0 +1,3 @@
+# Empty WORKSPACE.bazel — required by Bazel to recognise this directory as a
+# workspace root when referenced via local_path_override from example sub-workspaces.
+# All dependency management is done via MODULE.bazel (Bzlmod).
