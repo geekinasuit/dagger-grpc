@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo:*)",
+      "Bash(jj status:*)",
+      "Bash(jj commit:*)"
+    ]
+  }
+}
