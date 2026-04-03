@@ -12,7 +12,7 @@ java_library(
         "@maven//:com_linecorp_armeria_armeria_grpc",
         "@maven//:io_github_oshai_kotlin_logging_jvm",
         "@maven//:io_grpc_grpc_protobuf_lite",
-        "@protobuf//java/core",
+        "@maven//:com_google_protobuf_protobuf_java",
     ],
 )
 
