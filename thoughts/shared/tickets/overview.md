@@ -9,7 +9,7 @@ T00  Verify HEAD builds & tests          HIGH    ✅ DONE
   └─ T01  Kotlin example Bzlmod hygiene  LOW     (builds fine; stale names only)
   └─ T08  Unblock KSP tests              HIGH    (prerequisite for KSP test work)
   └─ T02  Pin Kotlin toolchain           MEDIUM
-  └─ T03  Proto version skew             LOW
+  └─ T03  Proto version skew             LOW     ✅ DONE
 
 T04  Design module generation shape      HIGH    (prerequisite for T05/T06/T07)
   └─ T07  Extend ksp-apt-bridge          MEDIUM  (prerequisite for T05/T06)
@@ -33,7 +33,7 @@ T15  User-facing integration guide       LOW     (after T05+T06)
 | T00 | Verify HEAD builds and tests pass             | HIGH     | infra        | open   |
 | T01 | Update Kotlin example to canonical Bzlmod names (hygiene) | LOW | infra | open   |
 | T02 | Pin Kotlin toolchain version                  | MEDIUM   | infra        | open   |
-| T03 | Resolve proto version skew                    | LOW      | infra        | open   |
+| T03 | Resolve proto version skew                    | LOW      | infra        | done   |
 | T04 | Design generated module shape (ADR)           | HIGH     | codegen      | open   |
 | T05 | Implement KSP module generation               | HIGH     | codegen      | open   |
 | T06 | Implement APT module generation               | HIGH     | codegen      | open   |
