@@ -1,6 +1,6 @@
 {
   "lockFileVersion": 3,
-  "moduleFileHash": "3d018b5df6a4f42baef9df0a4b6bb726c6141c54ad9aed6adf55f95ec2adab8e",
+  "moduleFileHash": "e1159a9d020cccefb71cea28ade12b9c8df2159f44863d4af5d4e3448f8cc454",
   "flags": {
     "cmdRegistries": [
       "https://bcr.bazel.build/"
@@ -13,7 +13,7 @@
     "compatibilityMode": "ERROR"
   },
   "localOverrideHashes": {
-    "dagger-grpc": "0181a0da6850ef691f835d8cd3a55e46ea9335a0797e70ead27badac8063bb20",
+    "dagger-grpc": "fd69814250cfd707f8c27106ce7af3ef9bead5c6d7ee90b671756ae1d8fcd959",
     "bazel_tools": "922ea6752dc9105de5af957f7a99a6933c0a6a712d23df6aad16a9c399f7e787"
   },
   "moduleDepGraph": {
@@ -164,7 +164,7 @@
         "rules_jvm_external": "rules_jvm_external@6.7",
         "com_google_protobuf": "protobuf@29.1",
         "grpc": "grpc@1.69.0",
-        "io_grpc_grpc_java": "grpc-java@1.69.0",
+        "io_grpc_grpc_java": "grpc-java@1.71.0",
         "rules_proto_grpc_java": "rules_proto_grpc_java@5.0.1",
         "bazel_tools": "bazel_tools@_",
         "local_config_platform": "local_config_platform@_"
@@ -254,7 +254,7 @@
         "rules_proto": "rules_proto@7.1.0",
         "protobuf": "protobuf@29.1",
         "grpc": "grpc@1.69.0",
-        "grpc-java": "grpc-java@1.69.0",
+        "grpc-java": "grpc-java@1.71.0",
         "rules_proto_grpc_java": "rules_proto_grpc_java@5.0.1",
         "bazel_tools": "bazel_tools@_",
         "local_config_platform": "local_config_platform@_"
@@ -1360,7 +1360,7 @@
         "com_github_google_benchmark": "google_benchmark@1.8.5",
         "com_google_googleapis": "googleapis@0.0.0-20240819-fe8ba054a",
         "com_google_googletest": "googletest@1.15.2",
-        "grpc-java": "grpc-java@1.69.0",
+        "grpc-java": "grpc-java@1.71.0",
         "io_opencensus_cpp": "opencensus-cpp@0.0.0-20230502-50eb5de",
         "io_opentelemetry_cpp": "opentelemetry-cpp@1.16.0",
         "platforms": "platforms@0.0.10",
@@ -1397,10 +1397,10 @@
         }
       }
     },
-    "grpc-java@1.69.0": {
+    "grpc-java@1.71.0": {
       "name": "grpc-java",
-      "version": "1.69.0",
-      "key": "grpc-java@1.69.0",
+      "version": "1.71.0",
+      "key": "grpc-java@1.71.0",
       "repoName": "io_grpc_grpc_java",
       "executionPlatformsToRegister": [],
       "toolchainsToRegister": [],
@@ -1408,10 +1408,10 @@
         {
           "extensionBzlFile": "@rules_jvm_external//:extensions.bzl",
           "extensionName": "maven",
-          "usingModule": "grpc-java@1.69.0",
+          "usingModule": "grpc-java@1.71.0",
           "location": {
-            "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-            "line": 66,
+            "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+            "line": 67,
             "column": 22
           },
           "imports": {
@@ -1424,7 +1424,7 @@
               "attributeValues": {
                 "artifacts": [
                   "com.google.android:annotations:4.1.1.4",
-                  "com.google.api.grpc:proto-google-common-protos:2.48.0",
+                  "com.google.api.grpc:proto-google-common-protos:2.51.0",
                   "com.google.auth:google-auth-library-credentials:1.24.1",
                   "com.google.auth:google-auth-library-oauth2-http:1.24.1",
                   "com.google.auto.value:auto-value-annotations:1.11.0",
@@ -1434,7 +1434,7 @@
                   "com.google.errorprone:error_prone_annotations:2.30.0",
                   "com.google.guava:failureaccess:1.0.1",
                   "com.google.guava:guava:33.3.1-android",
-                  "com.google.re2j:re2j:1.7",
+                  "com.google.re2j:re2j:1.8",
                   "com.google.truth:truth:1.4.2",
                   "com.squareup.okhttp:okhttp:2.7.5",
                   "com.squareup.okio:okio:2.10.0",
@@ -1447,8 +1447,8 @@
                   "io.netty:netty-handler-proxy:4.1.110.Final",
                   "io.netty:netty-handler:4.1.110.Final",
                   "io.netty:netty-resolver:4.1.110.Final",
-                  "io.netty:netty-tcnative-boringssl-static:2.0.65.Final",
-                  "io.netty:netty-tcnative-classes:2.0.65.Final",
+                  "io.netty:netty-tcnative-boringssl-static:2.0.70.Final",
+                  "io.netty:netty-tcnative-classes:2.0.70.Final",
                   "io.netty:netty-transport-native-epoll:jar:linux-x86_64:4.1.110.Final",
                   "io.netty:netty-transport-native-unix-common:4.1.110.Final",
                   "io.netty:netty-transport:4.1.110.Final",
@@ -1467,8 +1467,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 68,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 69,
                 "column": 14
               }
             },
@@ -1480,8 +1480,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 78,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 79,
                 "column": 15
               }
             },
@@ -1493,8 +1493,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 83,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 84,
                 "column": 15
               }
             },
@@ -1506,8 +1506,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 88,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 89,
                 "column": 15
               }
             },
@@ -1519,8 +1519,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 93,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 94,
                 "column": 15
               }
             },
@@ -1532,8 +1532,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 98,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 99,
                 "column": 15
               }
             },
@@ -1545,8 +1545,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 103,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 104,
                 "column": 15
               }
             },
@@ -1558,8 +1558,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 108,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 109,
                 "column": 15
               }
             },
@@ -1571,8 +1571,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 113,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 114,
                 "column": 15
               }
             },
@@ -1584,8 +1584,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 118,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 119,
                 "column": 15
               }
             },
@@ -1597,8 +1597,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 123,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 124,
                 "column": 15
               }
             },
@@ -1610,8 +1610,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 128,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 129,
                 "column": 15
               }
             },
@@ -1623,8 +1623,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 133,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 134,
                 "column": 15
               }
             },
@@ -1636,8 +1636,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 138,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 139,
                 "column": 15
               }
             },
@@ -1649,8 +1649,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 143,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 144,
                 "column": 15
               }
             },
@@ -1662,8 +1662,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 148,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 149,
                 "column": 15
               }
             },
@@ -1675,8 +1675,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 153,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 154,
                 "column": 15
               }
             },
@@ -1688,8 +1688,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 158,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 159,
                 "column": 15
               }
             },
@@ -1701,8 +1701,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 163,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 164,
                 "column": 15
               }
             },
@@ -1714,8 +1714,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 168,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 169,
                 "column": 15
               }
             },
@@ -1727,8 +1727,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 173,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 174,
                 "column": 15
               }
             },
@@ -1740,8 +1740,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 178,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 179,
                 "column": 15
               }
             },
@@ -1753,8 +1753,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 183,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 184,
                 "column": 15
               }
             },
@@ -1766,8 +1766,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 188,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 189,
                 "column": 15
               }
             }
@@ -1778,10 +1778,10 @@
         {
           "extensionBzlFile": "@com_google_googleapis//:extensions.bzl",
           "extensionName": "switched_rules",
-          "usingModule": "grpc-java@1.69.0",
+          "usingModule": "grpc-java@1.71.0",
           "location": {
-            "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-            "line": 193,
+            "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+            "line": 194,
             "column": 31
           },
           "imports": {},
@@ -1794,8 +1794,8 @@
               },
               "devDependency": false,
               "location": {
-                "file": "https://bcr.bazel.build/modules/grpc-java/1.69.0/MODULE.bazel",
-                "line": 195,
+                "file": "https://bcr.bazel.build/modules/grpc-java/1.71.0/MODULE.bazel",
+                "line": 196,
                 "column": 29
               }
             }
@@ -1827,14 +1827,14 @@
         "bzlFile": "@bazel_tools//tools/build_defs/repo:http.bzl",
         "ruleClassName": "http_archive",
         "attributes": {
-          "name": "grpc-java~1.69.0",
+          "name": "grpc-java~1.71.0",
           "urls": [
-            "https://github.com/grpc/grpc-java/archive/refs/tags/v1.69.0.tar.gz"
+            "https://github.com/grpc/grpc-java/archive/refs/tags/v1.71.0.tar.gz"
           ],
-          "integrity": "sha256-XDF48RgZDXP1JGDWcce2/EIkm3tYkNIozkIvLKILGmg=",
-          "strip_prefix": "grpc-java-1.69.0",
+          "integrity": "sha256-KUKla3lEeaC8HA5pA5ya5hXxyznQ468SrzXA6zvXP98=",
+          "strip_prefix": "grpc-java-1.71.0",
           "remote_patches": {
-            "https://bcr.bazel.build/modules/grpc-java/1.69.0/patches/module_dot_bazel.patch": "sha256-om3FIHRKoAkKkmJxD5LCVibwqETuWlTgd1cs6M+waz4="
+            "https://bcr.bazel.build/modules/grpc-java/1.71.0/patches/module_dot_bazel.patch": "sha256-bV3WNlDtpCFirC2svEqNpgXQbBVKUWC9123OdrFWjoU="
           },
           "remote_patch_strip": 1
         }
@@ -3292,7 +3292,7 @@
       ],
       "deps": {
         "com_github_grpc_grpc": "grpc@1.69.0",
-        "io_grpc_grpc_java": "grpc-java@1.69.0",
+        "io_grpc_grpc_java": "grpc-java@1.71.0",
         "com_google_protobuf": "protobuf@29.1",
         "io_bazel_rules_go": "rules_go@0.50.1",
         "rules_proto": "rules_proto@7.1.0",
@@ -8385,26 +8385,26 @@
                 "com.google.protobuf:protobuf-java": "'@@protobuf~29.1//:protobuf_java'",
                 "com.google.protobuf:protobuf-java-util": "'@@protobuf~29.1//:protobuf_java_util'",
                 "com.google.protobuf:protobuf-javalite": "'@@protobuf~29.1//:protobuf_javalite'",
-                "io.grpc:grpc-alts": "'@@grpc-java~1.69.0//alts:alts'",
-                "io.grpc:grpc-api": "'@@grpc-java~1.69.0//api:api'",
-                "io.grpc:grpc-auth": "'@@grpc-java~1.69.0//auth:auth'",
-                "io.grpc:grpc-census": "'@@grpc-java~1.69.0//census:census'",
-                "io.grpc:grpc-context": "'@@grpc-java~1.69.0//context:context'",
-                "io.grpc:grpc-core": "'@@grpc-java~1.69.0//core:core_maven'",
-                "io.grpc:grpc-googleapis": "'@@grpc-java~1.69.0//googleapis:googleapis'",
-                "io.grpc:grpc-grpclb": "'@@grpc-java~1.69.0//grpclb:grpclb'",
-                "io.grpc:grpc-inprocess": "'@@grpc-java~1.69.0//inprocess:inprocess'",
-                "io.grpc:grpc-netty": "'@@grpc-java~1.69.0//netty:netty'",
-                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.69.0//netty:shaded_maven'",
-                "io.grpc:grpc-okhttp": "'@@grpc-java~1.69.0//okhttp:okhttp'",
-                "io.grpc:grpc-protobuf": "'@@grpc-java~1.69.0//protobuf:protobuf'",
-                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.69.0//protobuf-lite:protobuf-lite'",
-                "io.grpc:grpc-rls": "'@@grpc-java~1.69.0//rls:rls'",
-                "io.grpc:grpc-services": "'@@grpc-java~1.69.0//services:services_maven'",
-                "io.grpc:grpc-stub": "'@@grpc-java~1.69.0//stub:stub'",
-                "io.grpc:grpc-testing": "'@@grpc-java~1.69.0//testing:testing'",
-                "io.grpc:grpc-xds": "'@@grpc-java~1.69.0//xds:xds_maven'",
-                "io.grpc:grpc-util": "'@@grpc-java~1.69.0//util:util'"
+                "io.grpc:grpc-alts": "'@@grpc-java~1.71.0//alts:alts'",
+                "io.grpc:grpc-api": "'@@grpc-java~1.71.0//api:api'",
+                "io.grpc:grpc-auth": "'@@grpc-java~1.71.0//auth:auth'",
+                "io.grpc:grpc-census": "'@@grpc-java~1.71.0//census:census'",
+                "io.grpc:grpc-context": "'@@grpc-java~1.71.0//context:context'",
+                "io.grpc:grpc-core": "'@@grpc-java~1.71.0//core:core_maven'",
+                "io.grpc:grpc-googleapis": "'@@grpc-java~1.71.0//googleapis:googleapis'",
+                "io.grpc:grpc-grpclb": "'@@grpc-java~1.71.0//grpclb:grpclb'",
+                "io.grpc:grpc-inprocess": "'@@grpc-java~1.71.0//inprocess:inprocess'",
+                "io.grpc:grpc-netty": "'@@grpc-java~1.71.0//netty:netty'",
+                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.71.0//netty:shaded_maven'",
+                "io.grpc:grpc-okhttp": "'@@grpc-java~1.71.0//okhttp:okhttp'",
+                "io.grpc:grpc-protobuf": "'@@grpc-java~1.71.0//protobuf:protobuf'",
+                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.71.0//protobuf-lite:protobuf-lite'",
+                "io.grpc:grpc-rls": "'@@grpc-java~1.71.0//rls:rls'",
+                "io.grpc:grpc-services": "'@@grpc-java~1.71.0//services:services_maven'",
+                "io.grpc:grpc-stub": "'@@grpc-java~1.71.0//stub:stub'",
+                "io.grpc:grpc-testing": "'@@grpc-java~1.71.0//testing:testing'",
+                "io.grpc:grpc-xds": "'@@grpc-java~1.71.0//xds:xds_maven'",
+                "io.grpc:grpc-util": "'@@grpc-java~1.71.0//util:util'"
               },
               "strict_visibility": false,
               "strict_visibility_value": [
@@ -8676,26 +8676,26 @@
                 "com.google.protobuf:protobuf-java": "'@@protobuf~29.1//:protobuf_java'",
                 "com.google.protobuf:protobuf-java-util": "'@@protobuf~29.1//:protobuf_java_util'",
                 "com.google.protobuf:protobuf-javalite": "'@@protobuf~29.1//:protobuf_javalite'",
-                "io.grpc:grpc-alts": "'@@grpc-java~1.69.0//alts:alts'",
-                "io.grpc:grpc-api": "'@@grpc-java~1.69.0//api:api'",
-                "io.grpc:grpc-auth": "'@@grpc-java~1.69.0//auth:auth'",
-                "io.grpc:grpc-census": "'@@grpc-java~1.69.0//census:census'",
-                "io.grpc:grpc-context": "'@@grpc-java~1.69.0//context:context'",
-                "io.grpc:grpc-core": "'@@grpc-java~1.69.0//core:core_maven'",
-                "io.grpc:grpc-googleapis": "'@@grpc-java~1.69.0//googleapis:googleapis'",
-                "io.grpc:grpc-grpclb": "'@@grpc-java~1.69.0//grpclb:grpclb'",
-                "io.grpc:grpc-inprocess": "'@@grpc-java~1.69.0//inprocess:inprocess'",
-                "io.grpc:grpc-netty": "'@@grpc-java~1.69.0//netty:netty'",
-                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.69.0//netty:shaded_maven'",
-                "io.grpc:grpc-okhttp": "'@@grpc-java~1.69.0//okhttp:okhttp'",
-                "io.grpc:grpc-protobuf": "'@@grpc-java~1.69.0//protobuf:protobuf'",
-                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.69.0//protobuf-lite:protobuf-lite'",
-                "io.grpc:grpc-rls": "'@@grpc-java~1.69.0//rls:rls'",
-                "io.grpc:grpc-services": "'@@grpc-java~1.69.0//services:services_maven'",
-                "io.grpc:grpc-stub": "'@@grpc-java~1.69.0//stub:stub'",
-                "io.grpc:grpc-testing": "'@@grpc-java~1.69.0//testing:testing'",
-                "io.grpc:grpc-xds": "'@@grpc-java~1.69.0//xds:xds_maven'",
-                "io.grpc:grpc-util": "'@@grpc-java~1.69.0//util:util'"
+                "io.grpc:grpc-alts": "'@@grpc-java~1.71.0//alts:alts'",
+                "io.grpc:grpc-api": "'@@grpc-java~1.71.0//api:api'",
+                "io.grpc:grpc-auth": "'@@grpc-java~1.71.0//auth:auth'",
+                "io.grpc:grpc-census": "'@@grpc-java~1.71.0//census:census'",
+                "io.grpc:grpc-context": "'@@grpc-java~1.71.0//context:context'",
+                "io.grpc:grpc-core": "'@@grpc-java~1.71.0//core:core_maven'",
+                "io.grpc:grpc-googleapis": "'@@grpc-java~1.71.0//googleapis:googleapis'",
+                "io.grpc:grpc-grpclb": "'@@grpc-java~1.71.0//grpclb:grpclb'",
+                "io.grpc:grpc-inprocess": "'@@grpc-java~1.71.0//inprocess:inprocess'",
+                "io.grpc:grpc-netty": "'@@grpc-java~1.71.0//netty:netty'",
+                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.71.0//netty:shaded_maven'",
+                "io.grpc:grpc-okhttp": "'@@grpc-java~1.71.0//okhttp:okhttp'",
+                "io.grpc:grpc-protobuf": "'@@grpc-java~1.71.0//protobuf:protobuf'",
+                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.71.0//protobuf-lite:protobuf-lite'",
+                "io.grpc:grpc-rls": "'@@grpc-java~1.71.0//rls:rls'",
+                "io.grpc:grpc-services": "'@@grpc-java~1.71.0//services:services_maven'",
+                "io.grpc:grpc-stub": "'@@grpc-java~1.71.0//stub:stub'",
+                "io.grpc:grpc-testing": "'@@grpc-java~1.71.0//testing:testing'",
+                "io.grpc:grpc-xds": "'@@grpc-java~1.71.0//xds:xds_maven'",
+                "io.grpc:grpc-util": "'@@grpc-java~1.71.0//util:util'"
               },
               "strict_visibility": false,
               "strict_visibility_value": [
@@ -8930,26 +8930,26 @@
                 "com.google.protobuf:protobuf-java": "'@@protobuf~29.1//:protobuf_java'",
                 "com.google.protobuf:protobuf-java-util": "'@@protobuf~29.1//:protobuf_java_util'",
                 "com.google.protobuf:protobuf-javalite": "'@@protobuf~29.1//:protobuf_javalite'",
-                "io.grpc:grpc-alts": "'@@grpc-java~1.69.0//alts:alts'",
-                "io.grpc:grpc-api": "'@@grpc-java~1.69.0//api:api'",
-                "io.grpc:grpc-auth": "'@@grpc-java~1.69.0//auth:auth'",
-                "io.grpc:grpc-census": "'@@grpc-java~1.69.0//census:census'",
-                "io.grpc:grpc-context": "'@@grpc-java~1.69.0//context:context'",
-                "io.grpc:grpc-core": "'@@grpc-java~1.69.0//core:core_maven'",
-                "io.grpc:grpc-googleapis": "'@@grpc-java~1.69.0//googleapis:googleapis'",
-                "io.grpc:grpc-grpclb": "'@@grpc-java~1.69.0//grpclb:grpclb'",
-                "io.grpc:grpc-inprocess": "'@@grpc-java~1.69.0//inprocess:inprocess'",
-                "io.grpc:grpc-netty": "'@@grpc-java~1.69.0//netty:netty'",
-                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.69.0//netty:shaded_maven'",
-                "io.grpc:grpc-okhttp": "'@@grpc-java~1.69.0//okhttp:okhttp'",
-                "io.grpc:grpc-protobuf": "'@@grpc-java~1.69.0//protobuf:protobuf'",
-                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.69.0//protobuf-lite:protobuf-lite'",
-                "io.grpc:grpc-rls": "'@@grpc-java~1.69.0//rls:rls'",
-                "io.grpc:grpc-services": "'@@grpc-java~1.69.0//services:services_maven'",
-                "io.grpc:grpc-stub": "'@@grpc-java~1.69.0//stub:stub'",
-                "io.grpc:grpc-testing": "'@@grpc-java~1.69.0//testing:testing'",
-                "io.grpc:grpc-xds": "'@@grpc-java~1.69.0//xds:xds_maven'",
-                "io.grpc:grpc-util": "'@@grpc-java~1.69.0//util:util'"
+                "io.grpc:grpc-alts": "'@@grpc-java~1.71.0//alts:alts'",
+                "io.grpc:grpc-api": "'@@grpc-java~1.71.0//api:api'",
+                "io.grpc:grpc-auth": "'@@grpc-java~1.71.0//auth:auth'",
+                "io.grpc:grpc-census": "'@@grpc-java~1.71.0//census:census'",
+                "io.grpc:grpc-context": "'@@grpc-java~1.71.0//context:context'",
+                "io.grpc:grpc-core": "'@@grpc-java~1.71.0//core:core_maven'",
+                "io.grpc:grpc-googleapis": "'@@grpc-java~1.71.0//googleapis:googleapis'",
+                "io.grpc:grpc-grpclb": "'@@grpc-java~1.71.0//grpclb:grpclb'",
+                "io.grpc:grpc-inprocess": "'@@grpc-java~1.71.0//inprocess:inprocess'",
+                "io.grpc:grpc-netty": "'@@grpc-java~1.71.0//netty:netty'",
+                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.71.0//netty:shaded_maven'",
+                "io.grpc:grpc-okhttp": "'@@grpc-java~1.71.0//okhttp:okhttp'",
+                "io.grpc:grpc-protobuf": "'@@grpc-java~1.71.0//protobuf:protobuf'",
+                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.71.0//protobuf-lite:protobuf-lite'",
+                "io.grpc:grpc-rls": "'@@grpc-java~1.71.0//rls:rls'",
+                "io.grpc:grpc-services": "'@@grpc-java~1.71.0//services:services_maven'",
+                "io.grpc:grpc-stub": "'@@grpc-java~1.71.0//stub:stub'",
+                "io.grpc:grpc-testing": "'@@grpc-java~1.71.0//testing:testing'",
+                "io.grpc:grpc-xds": "'@@grpc-java~1.71.0//xds:xds_maven'",
+                "io.grpc:grpc-util": "'@@grpc-java~1.71.0//util:util'"
               },
               "strict_visibility": false,
               "strict_visibility_value": [
@@ -9154,26 +9154,26 @@
                 "com.google.protobuf:protobuf-java": "'@@protobuf~29.1//:protobuf_java'",
                 "com.google.protobuf:protobuf-java-util": "'@@protobuf~29.1//:protobuf_java_util'",
                 "com.google.protobuf:protobuf-javalite": "'@@protobuf~29.1//:protobuf_javalite'",
-                "io.grpc:grpc-alts": "'@@grpc-java~1.69.0//alts:alts'",
-                "io.grpc:grpc-api": "'@@grpc-java~1.69.0//api:api'",
-                "io.grpc:grpc-auth": "'@@grpc-java~1.69.0//auth:auth'",
-                "io.grpc:grpc-census": "'@@grpc-java~1.69.0//census:census'",
-                "io.grpc:grpc-context": "'@@grpc-java~1.69.0//context:context'",
-                "io.grpc:grpc-core": "'@@grpc-java~1.69.0//core:core_maven'",
-                "io.grpc:grpc-googleapis": "'@@grpc-java~1.69.0//googleapis:googleapis'",
-                "io.grpc:grpc-grpclb": "'@@grpc-java~1.69.0//grpclb:grpclb'",
-                "io.grpc:grpc-inprocess": "'@@grpc-java~1.69.0//inprocess:inprocess'",
-                "io.grpc:grpc-netty": "'@@grpc-java~1.69.0//netty:netty'",
-                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.69.0//netty:shaded_maven'",
-                "io.grpc:grpc-okhttp": "'@@grpc-java~1.69.0//okhttp:okhttp'",
-                "io.grpc:grpc-protobuf": "'@@grpc-java~1.69.0//protobuf:protobuf'",
-                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.69.0//protobuf-lite:protobuf-lite'",
-                "io.grpc:grpc-rls": "'@@grpc-java~1.69.0//rls:rls'",
-                "io.grpc:grpc-services": "'@@grpc-java~1.69.0//services:services_maven'",
-                "io.grpc:grpc-stub": "'@@grpc-java~1.69.0//stub:stub'",
-                "io.grpc:grpc-testing": "'@@grpc-java~1.69.0//testing:testing'",
-                "io.grpc:grpc-xds": "'@@grpc-java~1.69.0//xds:xds_maven'",
-                "io.grpc:grpc-util": "'@@grpc-java~1.69.0//util:util'"
+                "io.grpc:grpc-alts": "'@@grpc-java~1.71.0//alts:alts'",
+                "io.grpc:grpc-api": "'@@grpc-java~1.71.0//api:api'",
+                "io.grpc:grpc-auth": "'@@grpc-java~1.71.0//auth:auth'",
+                "io.grpc:grpc-census": "'@@grpc-java~1.71.0//census:census'",
+                "io.grpc:grpc-context": "'@@grpc-java~1.71.0//context:context'",
+                "io.grpc:grpc-core": "'@@grpc-java~1.71.0//core:core_maven'",
+                "io.grpc:grpc-googleapis": "'@@grpc-java~1.71.0//googleapis:googleapis'",
+                "io.grpc:grpc-grpclb": "'@@grpc-java~1.71.0//grpclb:grpclb'",
+                "io.grpc:grpc-inprocess": "'@@grpc-java~1.71.0//inprocess:inprocess'",
+                "io.grpc:grpc-netty": "'@@grpc-java~1.71.0//netty:netty'",
+                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.71.0//netty:shaded_maven'",
+                "io.grpc:grpc-okhttp": "'@@grpc-java~1.71.0//okhttp:okhttp'",
+                "io.grpc:grpc-protobuf": "'@@grpc-java~1.71.0//protobuf:protobuf'",
+                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.71.0//protobuf-lite:protobuf-lite'",
+                "io.grpc:grpc-rls": "'@@grpc-java~1.71.0//rls:rls'",
+                "io.grpc:grpc-services": "'@@grpc-java~1.71.0//services:services_maven'",
+                "io.grpc:grpc-stub": "'@@grpc-java~1.71.0//stub:stub'",
+                "io.grpc:grpc-testing": "'@@grpc-java~1.71.0//testing:testing'",
+                "io.grpc:grpc-xds": "'@@grpc-java~1.71.0//xds:xds_maven'",
+                "io.grpc:grpc-util": "'@@grpc-java~1.71.0//util:util'"
               },
               "strict_visibility": false,
               "strict_visibility_value": [
@@ -9214,26 +9214,26 @@
                 "com.google.protobuf:protobuf-java": "'@@protobuf~29.1//:protobuf_java'",
                 "com.google.protobuf:protobuf-java-util": "'@@protobuf~29.1//:protobuf_java_util'",
                 "com.google.protobuf:protobuf-javalite": "'@@protobuf~29.1//:protobuf_javalite'",
-                "io.grpc:grpc-alts": "'@@grpc-java~1.69.0//alts:alts'",
-                "io.grpc:grpc-api": "'@@grpc-java~1.69.0//api:api'",
-                "io.grpc:grpc-auth": "'@@grpc-java~1.69.0//auth:auth'",
-                "io.grpc:grpc-census": "'@@grpc-java~1.69.0//census:census'",
-                "io.grpc:grpc-context": "'@@grpc-java~1.69.0//context:context'",
-                "io.grpc:grpc-core": "'@@grpc-java~1.69.0//core:core_maven'",
-                "io.grpc:grpc-googleapis": "'@@grpc-java~1.69.0//googleapis:googleapis'",
-                "io.grpc:grpc-grpclb": "'@@grpc-java~1.69.0//grpclb:grpclb'",
-                "io.grpc:grpc-inprocess": "'@@grpc-java~1.69.0//inprocess:inprocess'",
-                "io.grpc:grpc-netty": "'@@grpc-java~1.69.0//netty:netty'",
-                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.69.0//netty:shaded_maven'",
-                "io.grpc:grpc-okhttp": "'@@grpc-java~1.69.0//okhttp:okhttp'",
-                "io.grpc:grpc-protobuf": "'@@grpc-java~1.69.0//protobuf:protobuf'",
-                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.69.0//protobuf-lite:protobuf-lite'",
-                "io.grpc:grpc-rls": "'@@grpc-java~1.69.0//rls:rls'",
-                "io.grpc:grpc-services": "'@@grpc-java~1.69.0//services:services_maven'",
-                "io.grpc:grpc-stub": "'@@grpc-java~1.69.0//stub:stub'",
-                "io.grpc:grpc-testing": "'@@grpc-java~1.69.0//testing:testing'",
-                "io.grpc:grpc-xds": "'@@grpc-java~1.69.0//xds:xds_maven'",
-                "io.grpc:grpc-util": "'@@grpc-java~1.69.0//util:util'"
+                "io.grpc:grpc-alts": "'@@grpc-java~1.71.0//alts:alts'",
+                "io.grpc:grpc-api": "'@@grpc-java~1.71.0//api:api'",
+                "io.grpc:grpc-auth": "'@@grpc-java~1.71.0//auth:auth'",
+                "io.grpc:grpc-census": "'@@grpc-java~1.71.0//census:census'",
+                "io.grpc:grpc-context": "'@@grpc-java~1.71.0//context:context'",
+                "io.grpc:grpc-core": "'@@grpc-java~1.71.0//core:core_maven'",
+                "io.grpc:grpc-googleapis": "'@@grpc-java~1.71.0//googleapis:googleapis'",
+                "io.grpc:grpc-grpclb": "'@@grpc-java~1.71.0//grpclb:grpclb'",
+                "io.grpc:grpc-inprocess": "'@@grpc-java~1.71.0//inprocess:inprocess'",
+                "io.grpc:grpc-netty": "'@@grpc-java~1.71.0//netty:netty'",
+                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.71.0//netty:shaded_maven'",
+                "io.grpc:grpc-okhttp": "'@@grpc-java~1.71.0//okhttp:okhttp'",
+                "io.grpc:grpc-protobuf": "'@@grpc-java~1.71.0//protobuf:protobuf'",
+                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.71.0//protobuf-lite:protobuf-lite'",
+                "io.grpc:grpc-rls": "'@@grpc-java~1.71.0//rls:rls'",
+                "io.grpc:grpc-services": "'@@grpc-java~1.71.0//services:services_maven'",
+                "io.grpc:grpc-stub": "'@@grpc-java~1.71.0//stub:stub'",
+                "io.grpc:grpc-testing": "'@@grpc-java~1.71.0//testing:testing'",
+                "io.grpc:grpc-xds": "'@@grpc-java~1.71.0//xds:xds_maven'",
+                "io.grpc:grpc-util": "'@@grpc-java~1.71.0//util:util'"
               },
               "strict_visibility": false,
               "strict_visibility_value": [
@@ -11114,7 +11114,7 @@
                 "{ \"group\": \"org.hamcrest\", \"artifact\": \"hamcrest-library\", \"version\": \"1.3\" }",
                 "{ \"group\": \"org.slf4j\", \"artifact\": \"slf4j-jdk14\", \"version\": \"2.0.11\" }",
                 "{ \"group\": \"com.google.android\", \"artifact\": \"annotations\", \"version\": \"4.1.1.4\" }",
-                "{ \"group\": \"com.google.api.grpc\", \"artifact\": \"proto-google-common-protos\", \"version\": \"2.48.0\" }",
+                "{ \"group\": \"com.google.api.grpc\", \"artifact\": \"proto-google-common-protos\", \"version\": \"2.51.0\" }",
                 "{ \"group\": \"com.google.auth\", \"artifact\": \"google-auth-library-credentials\", \"version\": \"1.24.1\" }",
                 "{ \"group\": \"com.google.auth\", \"artifact\": \"google-auth-library-oauth2-http\", \"version\": \"1.24.1\" }",
                 "{ \"group\": \"com.google.auto.value\", \"artifact\": \"auto-value-annotations\", \"version\": \"1.11.0\" }",
@@ -11124,7 +11124,7 @@
                 "{ \"group\": \"com.google.errorprone\", \"artifact\": \"error_prone_annotations\", \"version\": \"2.30.0\" }",
                 "{ \"group\": \"com.google.guava\", \"artifact\": \"failureaccess\", \"version\": \"1.0.1\" }",
                 "{ \"group\": \"com.google.guava\", \"artifact\": \"guava\", \"version\": \"33.3.1-android\" }",
-                "{ \"group\": \"com.google.re2j\", \"artifact\": \"re2j\", \"version\": \"1.7\" }",
+                "{ \"group\": \"com.google.re2j\", \"artifact\": \"re2j\", \"version\": \"1.8\" }",
                 "{ \"group\": \"com.google.truth\", \"artifact\": \"truth\", \"version\": \"1.4.2\" }",
                 "{ \"group\": \"com.squareup.okhttp\", \"artifact\": \"okhttp\", \"version\": \"2.7.5\" }",
                 "{ \"group\": \"com.squareup.okio\", \"artifact\": \"okio\", \"version\": \"2.10.0\" }",
@@ -11137,8 +11137,8 @@
                 "{ \"group\": \"io.netty\", \"artifact\": \"netty-handler-proxy\", \"version\": \"4.1.110.Final\" }",
                 "{ \"group\": \"io.netty\", \"artifact\": \"netty-handler\", \"version\": \"4.1.110.Final\" }",
                 "{ \"group\": \"io.netty\", \"artifact\": \"netty-resolver\", \"version\": \"4.1.110.Final\" }",
-                "{ \"group\": \"io.netty\", \"artifact\": \"netty-tcnative-boringssl-static\", \"version\": \"2.0.65.Final\" }",
-                "{ \"group\": \"io.netty\", \"artifact\": \"netty-tcnative-classes\", \"version\": \"2.0.65.Final\" }",
+                "{ \"group\": \"io.netty\", \"artifact\": \"netty-tcnative-boringssl-static\", \"version\": \"2.0.70.Final\" }",
+                "{ \"group\": \"io.netty\", \"artifact\": \"netty-tcnative-classes\", \"version\": \"2.0.70.Final\" }",
                 "{ \"group\": \"io.netty\", \"artifact\": \"netty-transport-native-epoll\", \"version\": \"4.1.110.Final\", \"packaging\": \"jar\", \"classifier\": \"linux-x86_64\" }",
                 "{ \"group\": \"io.netty\", \"artifact\": \"netty-transport-native-unix-common\", \"version\": \"4.1.110.Final\" }",
                 "{ \"group\": \"io.netty\", \"artifact\": \"netty-transport\", \"version\": \"4.1.110.Final\" }",
@@ -11161,26 +11161,26 @@
                 "com.google.protobuf:protobuf-java": "'@@protobuf~29.1//:protobuf_java'",
                 "com.google.protobuf:protobuf-java-util": "'@@protobuf~29.1//:protobuf_java_util'",
                 "com.google.protobuf:protobuf-javalite": "'@@protobuf~29.1//:protobuf_javalite'",
-                "io.grpc:grpc-alts": "'@@grpc-java~1.69.0//alts:alts'",
-                "io.grpc:grpc-api": "'@@grpc-java~1.69.0//api:api'",
-                "io.grpc:grpc-auth": "'@@grpc-java~1.69.0//auth:auth'",
-                "io.grpc:grpc-census": "'@@grpc-java~1.69.0//census:census'",
-                "io.grpc:grpc-context": "'@@grpc-java~1.69.0//context:context'",
-                "io.grpc:grpc-core": "'@@grpc-java~1.69.0//core:core_maven'",
-                "io.grpc:grpc-googleapis": "'@@grpc-java~1.69.0//googleapis:googleapis'",
-                "io.grpc:grpc-grpclb": "'@@grpc-java~1.69.0//grpclb:grpclb'",
-                "io.grpc:grpc-inprocess": "'@@grpc-java~1.69.0//inprocess:inprocess'",
-                "io.grpc:grpc-netty": "'@@grpc-java~1.69.0//netty:netty'",
-                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.69.0//netty:shaded_maven'",
-                "io.grpc:grpc-okhttp": "'@@grpc-java~1.69.0//okhttp:okhttp'",
-                "io.grpc:grpc-protobuf": "'@@grpc-java~1.69.0//protobuf:protobuf'",
-                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.69.0//protobuf-lite:protobuf-lite'",
-                "io.grpc:grpc-rls": "'@@grpc-java~1.69.0//rls:rls'",
-                "io.grpc:grpc-services": "'@@grpc-java~1.69.0//services:services_maven'",
-                "io.grpc:grpc-stub": "'@@grpc-java~1.69.0//stub:stub'",
-                "io.grpc:grpc-testing": "'@@grpc-java~1.69.0//testing:testing'",
-                "io.grpc:grpc-xds": "'@@grpc-java~1.69.0//xds:xds_maven'",
-                "io.grpc:grpc-util": "'@@grpc-java~1.69.0//util:util'"
+                "io.grpc:grpc-alts": "'@@grpc-java~1.71.0//alts:alts'",
+                "io.grpc:grpc-api": "'@@grpc-java~1.71.0//api:api'",
+                "io.grpc:grpc-auth": "'@@grpc-java~1.71.0//auth:auth'",
+                "io.grpc:grpc-census": "'@@grpc-java~1.71.0//census:census'",
+                "io.grpc:grpc-context": "'@@grpc-java~1.71.0//context:context'",
+                "io.grpc:grpc-core": "'@@grpc-java~1.71.0//core:core_maven'",
+                "io.grpc:grpc-googleapis": "'@@grpc-java~1.71.0//googleapis:googleapis'",
+                "io.grpc:grpc-grpclb": "'@@grpc-java~1.71.0//grpclb:grpclb'",
+                "io.grpc:grpc-inprocess": "'@@grpc-java~1.71.0//inprocess:inprocess'",
+                "io.grpc:grpc-netty": "'@@grpc-java~1.71.0//netty:netty'",
+                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.71.0//netty:shaded_maven'",
+                "io.grpc:grpc-okhttp": "'@@grpc-java~1.71.0//okhttp:okhttp'",
+                "io.grpc:grpc-protobuf": "'@@grpc-java~1.71.0//protobuf:protobuf'",
+                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.71.0//protobuf-lite:protobuf-lite'",
+                "io.grpc:grpc-rls": "'@@grpc-java~1.71.0//rls:rls'",
+                "io.grpc:grpc-services": "'@@grpc-java~1.71.0//services:services_maven'",
+                "io.grpc:grpc-stub": "'@@grpc-java~1.71.0//stub:stub'",
+                "io.grpc:grpc-testing": "'@@grpc-java~1.71.0//testing:testing'",
+                "io.grpc:grpc-xds": "'@@grpc-java~1.71.0//xds:xds_maven'",
+                "io.grpc:grpc-util": "'@@grpc-java~1.71.0//util:util'"
               },
               "strict_visibility": false,
               "strict_visibility_value": [
@@ -11834,26 +11834,26 @@
                 "com.google.protobuf:protobuf-java": "'@@protobuf~29.1//:protobuf_java'",
                 "com.google.protobuf:protobuf-java-util": "'@@protobuf~29.1//:protobuf_java_util'",
                 "com.google.protobuf:protobuf-javalite": "'@@protobuf~29.1//:protobuf_javalite'",
-                "io.grpc:grpc-alts": "'@@grpc-java~1.69.0//alts:alts'",
-                "io.grpc:grpc-api": "'@@grpc-java~1.69.0//api:api'",
-                "io.grpc:grpc-auth": "'@@grpc-java~1.69.0//auth:auth'",
-                "io.grpc:grpc-census": "'@@grpc-java~1.69.0//census:census'",
-                "io.grpc:grpc-context": "'@@grpc-java~1.69.0//context:context'",
-                "io.grpc:grpc-core": "'@@grpc-java~1.69.0//core:core_maven'",
-                "io.grpc:grpc-googleapis": "'@@grpc-java~1.69.0//googleapis:googleapis'",
-                "io.grpc:grpc-grpclb": "'@@grpc-java~1.69.0//grpclb:grpclb'",
-                "io.grpc:grpc-inprocess": "'@@grpc-java~1.69.0//inprocess:inprocess'",
-                "io.grpc:grpc-netty": "'@@grpc-java~1.69.0//netty:netty'",
-                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.69.0//netty:shaded_maven'",
-                "io.grpc:grpc-okhttp": "'@@grpc-java~1.69.0//okhttp:okhttp'",
-                "io.grpc:grpc-protobuf": "'@@grpc-java~1.69.0//protobuf:protobuf'",
-                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.69.0//protobuf-lite:protobuf-lite'",
-                "io.grpc:grpc-rls": "'@@grpc-java~1.69.0//rls:rls'",
-                "io.grpc:grpc-services": "'@@grpc-java~1.69.0//services:services_maven'",
-                "io.grpc:grpc-stub": "'@@grpc-java~1.69.0//stub:stub'",
-                "io.grpc:grpc-testing": "'@@grpc-java~1.69.0//testing:testing'",
-                "io.grpc:grpc-xds": "'@@grpc-java~1.69.0//xds:xds_maven'",
-                "io.grpc:grpc-util": "'@@grpc-java~1.69.0//util:util'"
+                "io.grpc:grpc-alts": "'@@grpc-java~1.71.0//alts:alts'",
+                "io.grpc:grpc-api": "'@@grpc-java~1.71.0//api:api'",
+                "io.grpc:grpc-auth": "'@@grpc-java~1.71.0//auth:auth'",
+                "io.grpc:grpc-census": "'@@grpc-java~1.71.0//census:census'",
+                "io.grpc:grpc-context": "'@@grpc-java~1.71.0//context:context'",
+                "io.grpc:grpc-core": "'@@grpc-java~1.71.0//core:core_maven'",
+                "io.grpc:grpc-googleapis": "'@@grpc-java~1.71.0//googleapis:googleapis'",
+                "io.grpc:grpc-grpclb": "'@@grpc-java~1.71.0//grpclb:grpclb'",
+                "io.grpc:grpc-inprocess": "'@@grpc-java~1.71.0//inprocess:inprocess'",
+                "io.grpc:grpc-netty": "'@@grpc-java~1.71.0//netty:netty'",
+                "io.grpc:grpc-netty-shaded": "'@@grpc-java~1.71.0//netty:shaded_maven'",
+                "io.grpc:grpc-okhttp": "'@@grpc-java~1.71.0//okhttp:okhttp'",
+                "io.grpc:grpc-protobuf": "'@@grpc-java~1.71.0//protobuf:protobuf'",
+                "io.grpc:grpc-protobuf-lite": "'@@grpc-java~1.71.0//protobuf-lite:protobuf-lite'",
+                "io.grpc:grpc-rls": "'@@grpc-java~1.71.0//rls:rls'",
+                "io.grpc:grpc-services": "'@@grpc-java~1.71.0//services:services_maven'",
+                "io.grpc:grpc-stub": "'@@grpc-java~1.71.0//stub:stub'",
+                "io.grpc:grpc-testing": "'@@grpc-java~1.71.0//testing:testing'",
+                "io.grpc:grpc-xds": "'@@grpc-java~1.71.0//xds:xds_maven'",
+                "io.grpc:grpc-util": "'@@grpc-java~1.71.0//util:util'"
               },
               "strict_visibility": false,
               "strict_visibility_value": [
