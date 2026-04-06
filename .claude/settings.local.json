@@ -25,7 +25,10 @@
       "Bash(python3 -c \"import json,sys;d=json.load\\(sys.stdin\\);print\\(''''state:'''',d[''''state''''],''''base:'''',d[''''baseRefName''''],''''commits:'''',[c[''''messageHeadline''''] for c in d[''''commits'''']]\\)\")",
       "Bash(jj squash:*)",
       "Bash(python3 -c \"import json,sys;d=json.load\\(sys.stdin\\);print\\(''''base:'''',d[''''baseRefName''''],''''commits:'''',[c[''''messageHeadline''''] for c in d[''''commits'''']]\\)\")",
-      "Bash(gh api:*)"
+      "Bash(jj git:*)",
+      "Bash(jj rebase:*)",
+      "Bash(gh api:*)",
+      "Bash(gh pr:*)"
     ]
   }
 }
