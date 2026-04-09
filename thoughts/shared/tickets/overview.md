@@ -24,6 +24,9 @@ T12  Example integration tests           MEDIUM  (after T00)
 
 T13  Define io_grpc/lib/ purpose         LOW
 T15  User-facing integration guide       LOW     (after T05+T06)
+
+T16  Publish to Bazel Central Registry   MEDIUM  (after stable release tag)
+T17  Publish Maven artifacts             MEDIUM  (after stable release tag; coordinate with T16)
 ```
 
 ## Summary Table
@@ -46,3 +49,5 @@ T15  User-facing integration guide       LOW     (after T05+T06)
 | T13 | Define io_grpc/lib/ purpose                   | LOW      | runtime      | open   |
 | T14 | Remove hand-written boilerplate from examples | MEDIUM   | cleanup      | open   |
 | T15 | Write user-facing integration guide           | LOW      | docs         | open   |
+| T16 | Publish to Bazel Central Registry             | MEDIUM   | distribution | open   |
+| T17 | Publish Maven-compatible artifacts            | MEDIUM   | distribution | open   |
