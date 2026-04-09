@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(jj status:*)",
+      "Bash(jj log:*)",
+      "Bash(jj diff:*)",
+      "Bash(jj commit:*)",
+      "Bash(jj describe:*)",
+      "Bash(jj bookmark:*)",
+      "Bash(jj squash:*)",
+      "Bash(jj split:*)",
+      "Bash(jj rebase:*)",
+      "Bash(jj abandon:*)",
+      "Bash(jj git:*)",
+      "Bash(jj new:*)",
+      "Bash(gh repo:*)",
+      "Bash(gh api:*)",
+      "Bash(gh pr:*)",
+      "Bash(gh issue:*)",
+      "Bash(gh release:*)",
+      "Bash(bin/bazel build:*)",
+      "Bash(bin/bazel test:*)",
+      "Bash(bin/bazel mod:*)",
+      "Bash(bin/bazel query:*)",
+      "Bash(../../../bin/bazel build:*)",
+      "Bash(../../../bin/bazel test:*)",
+      "Bash(../../../bin/bazel mod:*)",
+      "Bash(kotlin:*)",
+      "Bash(/opt/homebrew/bin/kotlin:*)",
+      "Bash(chmod +x:*)",
+      "Bash(patch -p1 --dry-run)",
+      "Bash(patch -p1 --dry-run --verbose)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:registry.bazel.build)",
+      "WebFetch(domain:docs.bazel.build)",
+      "WebFetch(domain:bazel.build)"
+    ]
+  }
+}

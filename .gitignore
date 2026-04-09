@@ -33,3 +33,6 @@ bazel-*
 !.claude
 !AGENTS.md
 !CLAUDE.md
+
+# Local Claude Code overrides — not checked in
+.claude/settings.local.json
