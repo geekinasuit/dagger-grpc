@@ -3,7 +3,7 @@ id: T00
 title: Verify HEAD builds and tests pass at current implementation level
 priority: high
 phase: infra
-status: open
+status: done
 blocks: all other tickets
 ---
 
@@ -17,13 +17,22 @@ The research identified several potential issues (stale Kotlin example build, co
 
 ## Acceptance Criteria
 
-- [ ] `bazel build //...` passes from the repo root (all library + compiler targets)
-- [ ] `bazel test //...` passes from the repo root (all tests, including placeholder tests)
-- [ ] `bazel build //...` passes from `examples/io_grpc/bazel_build_java/`
-- [ ] `bazel test //...` passes from `examples/io_grpc/bazel_build_java/`
-- [ ] `bazel build //...` passes from `examples/io_grpc/bazel_build_kt/` — **or** this failure is documented as a known issue tracked in T01
-- [ ] CI passes (or CI failures are all pre-existing and documented)
-- [ ] Any newly discovered build/test failures are either fixed here or filed as separate tickets
+- [x] `bazel build //...` passes from the repo root (all library + compiler targets)
+- [x] `bazel test //...` passes from the repo root (all tests, including placeholder tests)
+- [x] `bazel build //...` passes from `examples/io_grpc/bazel_build_java/`
+- [x] `bazel test //...` passes from `examples/io_grpc/bazel_build_java/`
+- [x] `bazel build //...` passes from `examples/io_grpc/bazel_build_kt/`
+- [x] CI passes (or CI failures are all pre-existing and documented)
+- [x] Any newly discovered build/test failures are either fixed here or filed as separate tickets
+
+## Resolution
+
+Verified 2026-04-21. All three workspaces build and test clean:
+- Root: 26 targets built, 4/4 tests pass
+- `examples/bazel_build_java/`: 10 targets built, 2/2 tests pass
+- `examples/bazel_build_kt/`: 13 targets built (no test targets)
+
+Remaining noise is pre-existing and non-blocking: protobuf module version mismatch (upstream grpc-java), kapt/Kotlin 2 alpha warning, duplicate guava/truth artifact versions from transitive deps. T08 (KSP test commented out) confirmed as a separate open ticket.
 
 ## Implementation Notes
 

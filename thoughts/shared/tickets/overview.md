@@ -30,7 +30,7 @@ T15  User-facing integration guide       LOW     (after T05+T06)
 
 | ID  | Title                                         | Priority | Phase        | Status |
 |-----|-----------------------------------------------|----------|--------------|--------|
-| T00 | Verify HEAD builds and tests pass             | HIGH     | infra        | open   |
+| T00 | Verify HEAD builds and tests pass             | HIGH     | infra        | done   |
 | T01 | Update Kotlin example to canonical Bzlmod names (hygiene) | LOW | infra | open   |
 | T02 | Pin Kotlin toolchain version                  | MEDIUM   | infra        | open   |
 | T03 | Resolve proto version skew                    | LOW      | infra        | done   |
