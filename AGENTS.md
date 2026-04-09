@@ -60,7 +60,7 @@ Before starting any non-trivial implementation work: check `thoughts/shared/tick
 
 ### overview.md is the Canonical Index
 
-`thoughts/shared/tickets/overview.md` is the single source of truth for all open and resolved work. Individual files in that directory contain full detail; `overview.md` contains the summary. **Do not maintain ticket inventories anywhere else** — other files (AGENT.md, research docs, plans) should reference `overview.md` rather than listing tickets inline.
+`thoughts/shared/tickets/overview.md` is the single source of truth for all open and resolved work. Individual files in that directory contain full detail; `overview.md` contains the summary. **Do not maintain ticket inventories anywhere else** — other files (AGENTS.md, research docs, plans) should reference `overview.md` rather than listing tickets inline.
 
 ### Keeping overview.md Current
 
