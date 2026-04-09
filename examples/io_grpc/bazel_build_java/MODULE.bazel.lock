@@ -1,6 +1,6 @@
 {
   "lockFileVersion": 3,
-  "moduleFileHash": "7a8b0762184a7b34e9655925a3c8abeb2c1419c67def7e4b29dffe288dcd4d47",
+  "moduleFileHash": "8ff232adc9a287a2ce2682615d9539791b3d49ff331ce01084d81775c262a478",
   "flags": {
     "cmdRegistries": [
       "https://bcr.bazel.build/"
@@ -13,7 +13,7 @@
     "compatibilityMode": "ERROR"
   },
   "localOverrideHashes": {
-    "dagger-grpc": "fd69814250cfd707f8c27106ce7af3ef9bead5c6d7ee90b671756ae1d8fcd959",
+    "dagger-grpc": "6955675ada70c601f91f68dd0ac5e4e865221689b81b83f6ae07d1e046b7a99d",
     "bazel_tools": "922ea6752dc9105de5af957f7a99a6933c0a6a712d23df6aad16a9c399f7e787"
   },
   "moduleDepGraph": {
@@ -117,7 +117,7 @@
     },
     "dagger-grpc@_": {
       "name": "dagger-grpc",
-      "version": "0.1",
+      "version": "0.1.0",
       "key": "dagger-grpc@_",
       "repoName": "dagger-grpc",
       "executionPlatformsToRegister": [],
