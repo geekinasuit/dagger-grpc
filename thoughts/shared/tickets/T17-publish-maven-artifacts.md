@@ -4,6 +4,7 @@ title: Publish Maven-compatible artifacts to Maven Central
 priority: medium
 phase: distribution
 status: open
+github_issue: 23
 ---
 
 ## Summary

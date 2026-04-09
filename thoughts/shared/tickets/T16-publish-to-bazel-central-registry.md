@@ -4,6 +4,7 @@ title: Publish to Bazel Central Registry
 priority: medium
 phase: distribution
 status: open
+github_issue: 22
 ---
 
 ## Summary

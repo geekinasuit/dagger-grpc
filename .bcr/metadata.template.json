@@ -1,0 +1,14 @@
+{
+  "homepage": "https://github.com/geekinasuit/dagger-grpc",
+  "maintainers": [
+    {
+      "github": "cgruber",
+      "github_user_id": 331234,
+      "name": "Christian Gruber",
+      "email": "cgruber@geekinasuit.com"
+    }
+  ],
+  "repository": ["github:geekinasuit/dagger-grpc"],
+  "versions": [],
+  "yanked_versions": {}
+}
