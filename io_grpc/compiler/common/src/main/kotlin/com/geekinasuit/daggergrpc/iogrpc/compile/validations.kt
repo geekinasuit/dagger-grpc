@@ -7,7 +7,7 @@ import com.google.devtools.ksp.symbol.KSClassDeclaration
 import com.google.devtools.ksp.symbol.KSType
 
 class Validator(private val logger: KSPLogger) {
-  internal fun validate(clazz: KSClassDeclaration): HandlerMetadata? {
+  fun validate(clazz: KSClassDeclaration): HandlerMetadata? {
     val annotation = validateAnnotation(clazz) ?: return null
     val grpcClass = validateGrpcClass(annotation) ?: return null
     val serviceInterface = validateServiceInterface(grpcClass) ?: return null
