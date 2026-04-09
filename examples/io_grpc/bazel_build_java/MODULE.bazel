@@ -3,7 +3,7 @@ module(
     version = "0.1",
 )
 
-bazel_dep(name = "dagger-grpc", version = "0.1")
+bazel_dep(name = "dagger-grpc", version = "0.1.0")
 local_path_override(
     module_name = "dagger-grpc",
     path = "../../..",
