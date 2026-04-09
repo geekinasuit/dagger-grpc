@@ -3,7 +3,7 @@ id: T03
 title: Resolve protobuf version skew between Bazel module and Maven
 priority: low
 phase: infra
-status: open
+status: done
 blocked_by: T00
 ---
 
@@ -21,10 +21,18 @@ Version skew between protobuf runtime JARs can cause subtle runtime failures (e.
 
 ## Acceptance Criteria
 
-- [ ] Protobuf Java library is sourced from a single consistent version across the build
-- [ ] Either all targets use `@protobuf//java/core` (Bazel module, update to a recent version) or all targets use `@maven//:com_google_protobuf_protobuf_java` (Maven, 4.29.3)
-- [ ] No mixing of protobuf versions on any single compilation classpath
-- [ ] `bazel build //...` and `bazel test //...` continue to pass
+- [x] Protobuf Java library is sourced from a single consistent version across the build
+- [x] Either all targets use `@protobuf//java/core` (Bazel module, update to a recent version) or all targets use `@maven//:com_google_protobuf_protobuf_java` (Maven, 4.29.3)
+- [x] No mixing of protobuf versions on any single compilation classpath
+- [x] `bazel build //...` and `bazel test //...` continue to pass
+
+## Resolution
+
+Resolved in PR #15 (T03: Resolve proto version skew — grpc-java upgrade + bazelversion pins):
+- Upgraded `grpc-java` from `1.69.0` to `1.71.0` (required for Bazel 8 compatibility — `ProtoInfo` removed as a global)
+- Replaced `@protobuf//java/core` usages in the Java example's BUILD files with `@maven//:com_google_protobuf_protobuf_java`
+- Added `.bazelversion` files to both example workspaces to pin Bazel to `8.1.1` (prevents CI from using Bazel 9 which breaks grpc-kotlin)
+- All three workspaces now build cleanly with consistent protobuf 4.29.3
 
 ## Implementation Notes
 
