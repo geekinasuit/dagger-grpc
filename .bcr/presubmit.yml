@@ -1,0 +1,32 @@
+matrix:
+  platform: ["ubuntu2004"]
+  bazel: ["7.x", "8.x"]
+tasks:
+  build_library:
+    name: "Build dagger-grpc library"
+    platform: ${{ platform }}
+    bazel: ${{ bazel }}
+    build_targets:
+      - "//..."
+    test_targets:
+      - "//..."
+  test_java_example:
+    name: "Java example (APT consumer)"
+    platform: ${{ platform }}
+    bazel: ${{ bazel }}
+    bcr_test_module:
+      module_path: "examples/io_grpc/bazel_build_java"
+      build_targets:
+        - "//..."
+      test_targets:
+        - "//..."
+  test_kt_example:
+    name: "Kotlin example (KSP consumer)"
+    platform: ${{ platform }}
+    bazel: ${{ bazel }}
+    bcr_test_module:
+      module_path: "examples/io_grpc/bazel_build_kt"
+      build_targets:
+        - "//..."
+      test_targets:
+        - "//..."
