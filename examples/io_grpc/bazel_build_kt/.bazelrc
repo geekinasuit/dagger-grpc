@@ -1,0 +1,2 @@
+# KSP is not threadsafe, so ensure only one ksp worker runs at a time.
+build --experimental_worker_max_multiplex_instances=KotlinKsp=1
