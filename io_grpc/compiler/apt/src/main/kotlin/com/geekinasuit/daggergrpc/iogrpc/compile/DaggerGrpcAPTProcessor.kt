@@ -8,6 +8,7 @@ import javax.annotation.processing.AbstractProcessor
 import javax.annotation.processing.ProcessingEnvironment
 import javax.annotation.processing.Processor
 import javax.annotation.processing.RoundEnvironment
+import javax.lang.model.SourceVersion
 import javax.lang.model.element.ElementKind
 import javax.lang.model.element.TypeElement
 
@@ -15,6 +16,10 @@ import javax.lang.model.element.TypeElement
 class DaggerGrpcAPTProcessor : AbstractProcessor() {
   override fun getSupportedAnnotationTypes(): MutableSet<String> =
     mutableSetOf(GrpcServiceHandler::class.java.canonicalName)
+
+  override fun getSupportedOptions(): MutableSet<String> = mutableSetOf("daggergrpc.package")
+
+  override fun getSupportedSourceVersion(): SourceVersion = SourceVersion.latestSupported()
 
   private lateinit var logger: APTLogger
 
@@ -45,9 +50,16 @@ class DaggerGrpcAPTProcessor : AbstractProcessor() {
         .filterNotNull()
         .onEach(adapterGenerator::generateAdapter)
 
-    //    if (handlerMetadatas.toList().isEmpty()) {
-    //      logger.warn("No valid classes were annotated with @GrpcServiceHandler")
-    //    } else env.generateModule(handlerMetadatas)
+    if (handlerMetadatas.isEmpty()) {
+      logger.warn("No valid classes were annotated with @GrpcServiceHandler")
+    } else {
+      val targetPackage = processingEnv.options["daggergrpc.package"]
+      if (targetPackage == null) {
+        logger.warn("daggergrpc.package option not set; skipping module generation")
+      } else {
+        ModuleGenerator(logger, processingEnv.filer).generateModule(handlerMetadatas, targetPackage)
+      }
+    }
     return true
   }
 }

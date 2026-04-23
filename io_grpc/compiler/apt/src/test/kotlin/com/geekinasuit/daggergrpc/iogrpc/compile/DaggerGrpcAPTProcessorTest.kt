@@ -74,6 +74,67 @@ class DaggerGrpcAPTProcessorTest {
   }
 
   @Test
+  fun testModuleGeneration() {
+    val src =
+      Source("test.FooService")
+        .withSource(
+          """
+          package test;
+          import com.geekinasuit.daggergrpc.api.GrpcServiceHandler;
+          import foo.Foo.FooRequest;
+          import foo.Foo.FooResponse;
+          import foo.FooServiceGrpc;
+          import io.grpc.stub.StreamObserver;
+          @GrpcServiceHandler(grpcWrapperType = foo.FooServiceGrpc.class)
+          public class FooService implements FooServiceGrpc.AsyncService {
+            @Override
+            public void foo(FooRequest request, StreamObserver<FooResponse> responseObserver) {}
+          }
+          """
+        )
+    val result =
+      javac()
+        .withProcessors(DaggerGrpcAPTProcessor())
+        .withOptions("-Adaggergrpc.package=test.dagger")
+        .compile(src)
+    assertAbout(compilations()).that(result).succeeded()
+    // adapter + GrpcCallScopeGraph + GrpcCallScopeGraphModule + GrpcHandlersModule
+    assertThat(result.generatedSourceFiles()).hasSize(4)
+    val fileNames = result.generatedSourceFiles().map { it.name }
+    assertThat(fileNames).contains("/SOURCE_OUTPUT/test/dagger/GrpcCallScopeGraph.java")
+    assertThat(fileNames).contains("/SOURCE_OUTPUT/test/dagger/GrpcCallScopeGraphModule.java")
+    assertThat(fileNames).contains("/SOURCE_OUTPUT/test/dagger/GrpcHandlersModule.java")
+  }
+
+  @Test
+  fun testMissingPackageOptionWarns() {
+    val src =
+      Source("test.FooService")
+        .withSource(
+          """
+          package test;
+          import com.geekinasuit.daggergrpc.api.GrpcServiceHandler;
+          import foo.Foo.FooRequest;
+          import foo.Foo.FooResponse;
+          import foo.FooServiceGrpc;
+          import io.grpc.stub.StreamObserver;
+          @GrpcServiceHandler(grpcWrapperType = foo.FooServiceGrpc.class)
+          public class FooService implements FooServiceGrpc.AsyncService {
+            @Override
+            public void foo(FooRequest request, StreamObserver<FooResponse> responseObserver) {}
+          }
+          """
+        )
+    val result = javac().withProcessors(DaggerGrpcAPTProcessor()).compile(src)
+    assertAbout(compilations()).that(result).succeeded()
+    // Only the adapter is generated; module generation skipped
+    assertThat(result.generatedSourceFiles()).hasSize(1)
+    assertAbout(compilations())
+      .that(result)
+      .hadWarningContaining("daggergrpc.package")
+  }
+
+  @Test
   fun testValidationFailAnnotationOnInterface() {
     val src =
       Source("test.Source1")
