@@ -20,10 +20,18 @@ class DaggerGrpcSymbolProcessor(private val env: SymbolProcessorEnvironment) : S
         .filterIsInstance<KSClassDeclaration>()
         .map(validator::validate)
         .filterNotNull()
-        .onEach(env::generateAdapter)
-    if (handlerMetadatas.toList().isEmpty()) {
+        .toList()
+    handlerMetadatas.forEach(env::generateAdapter)
+    if (handlerMetadatas.isEmpty()) {
       env.logger.warn("No valid classes were annotated with @GrpcServiceHandler")
-    } else env.generateModule(handlerMetadatas)
+    } else {
+      val targetPackage = env.options["daggergrpc.package"]
+      if (targetPackage == null) {
+        env.logger.warn("daggergrpc.package option not set; skipping module generation")
+      } else {
+        env.generateModule(handlerMetadatas, targetPackage)
+      }
+    }
     return unprocessable
   }
 }

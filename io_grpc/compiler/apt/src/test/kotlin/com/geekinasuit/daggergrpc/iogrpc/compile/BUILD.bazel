@@ -14,6 +14,8 @@ kt_jvm_test(
     ],
     deps = [
         ":grpc",
+        "//api",
+        "@maven//:com_google_dagger_dagger",
         "@maven//:com_google_testing_compile_compile_testing",
         "@maven//:com_google_truth_truth",
         "@maven//:junit_junit",
