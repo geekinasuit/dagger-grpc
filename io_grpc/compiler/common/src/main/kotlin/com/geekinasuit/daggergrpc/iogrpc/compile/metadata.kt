@@ -16,4 +16,7 @@ data class HandlerMetadata(
 
   val adapterName: String
     get() = "${name}Adapter"
+
+  val provisionName: String
+    get() = name.removeSuffix("Service").replaceFirstChar { it.lowercase() }
 }
