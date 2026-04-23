@@ -27,6 +27,7 @@ T15  User-facing integration guide       LOW     (after T05+T06)
 
 T16  Publish to Bazel Central Registry   MEDIUM  (after stable release tag)
 T17  Publish Maven artifacts             MEDIUM  (after stable release tag; coordinate with T16)
+T18  Gradle examples + Maven artifact    MEDIUM  (after T05+T06; Part D coordinates with T17 for Central; see also T15)
 ```
 
 ## Summary Table
@@ -51,3 +52,4 @@ T17  Publish Maven artifacts             MEDIUM  (after stable release tag; coor
 | T15 | Write user-facing integration guide           | LOW      | docs         | open   |
 | T16 | Publish to Bazel Central Registry             | MEDIUM   | distribution | open   |
 | T17 | Publish Maven-compatible artifacts            | MEDIUM   | distribution | open   |
+| T18 | Gradle examples and Maven artifact pipeline   | MEDIUM   | distribution | open   |
