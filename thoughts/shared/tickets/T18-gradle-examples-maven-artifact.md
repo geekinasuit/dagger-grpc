@@ -3,6 +3,7 @@ id: T18
 title: Gradle example projects and Maven artifact publication
 priority: medium
 phase: distribution
+milestone: post-v0.2.0
 status: open
 blocked_by: T05, T06
 blocks: ~
