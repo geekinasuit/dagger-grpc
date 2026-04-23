@@ -89,7 +89,7 @@ import com.geekinasuit.daggergrpc.api.GrpcCallScope
 import dagger.Subcomponent
 import javax.annotation.Generated
 
-@Generated("com.geekinasuit.daggergrpc.compiler.ksp.DaggerGrpcSymbolProcessor")
+@Generated("com.geekinasuit.daggergrpc.iogrpc.compile.DaggerGrpcSymbolProcessor")
 @Subcomponent(modules = [GrpcCallScopeGraphModule::class])
 @GrpcCallScope
 interface GrpcCallScopeGraph {
@@ -111,7 +111,7 @@ import com.geekinasuit.daggergrpc.api.GrpcCallContext
 import dagger.Module
 import javax.annotation.Generated
 
-@Generated("com.geekinasuit.daggergrpc.compiler.ksp.DaggerGrpcSymbolProcessor")
+@Generated("com.geekinasuit.daggergrpc.iogrpc.compile.DaggerGrpcSymbolProcessor")
 @Module(
   includes = [GrpcCallContext.Module::class],
   subcomponents = [GrpcCallScopeGraph::class],
@@ -131,7 +131,7 @@ import dagger.multibindings.IntoSet
 import io.grpc.BindableService
 import javax.annotation.Generated
 
-@Generated("com.geekinasuit.daggergrpc.compiler.ksp.DaggerGrpcSymbolProcessor")
+@Generated("com.geekinasuit.daggergrpc.iogrpc.compile.DaggerGrpcSymbolProcessor")
 @Module(includes = [GrpcCallScopeGraphModule::class])
 object GrpcHandlersModule {
   @Provides @IntoSet
@@ -182,7 +182,7 @@ import com.geekinasuit.daggergrpc.api.GrpcCallScope;
 import dagger.Subcomponent;
 import javax.annotation.processing.Generated;
 
-@Generated("com.geekinasuit.daggergrpc.compiler.apt.DaggerGrpcAPTProcessor")
+@Generated("com.geekinasuit.daggergrpc.iogrpc.compile.DaggerGrpcAPTProcessor")
 @Subcomponent(modules = {GrpcCallScopeGraphModule.class})
 @GrpcCallScope
 public interface GrpcCallScopeGraph {
@@ -204,7 +204,7 @@ import com.geekinasuit.daggergrpc.api.GrpcCallContext;
 import dagger.Module;
 import javax.annotation.processing.Generated;
 
-@Generated("com.geekinasuit.daggergrpc.compiler.apt.DaggerGrpcAPTProcessor")
+@Generated("com.geekinasuit.daggergrpc.iogrpc.compile.DaggerGrpcAPTProcessor")
 @Module(
   includes = {GrpcCallContext.Module.class},
   subcomponents = {GrpcCallScopeGraph.class}
@@ -224,7 +224,7 @@ import dagger.multibindings.IntoSet;
 import io.grpc.BindableService;
 import javax.annotation.processing.Generated;
 
-@Generated("com.geekinasuit.daggergrpc.compiler.apt.DaggerGrpcAPTProcessor")
+@Generated("com.geekinasuit.daggergrpc.iogrpc.compile.DaggerGrpcAPTProcessor")
 @Module(includes = {GrpcCallScopeGraphModule.class})
 abstract class GrpcHandlersModule {
   @Provides @IntoSet
