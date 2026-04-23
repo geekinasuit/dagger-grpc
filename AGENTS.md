@@ -1,5 +1,10 @@
 # Agent Guide: dagger-grpc
 
+**Stop. Check for a compressed form before reading further:**
+1. Does `AGENTS.compressed.md` exist in this directory?
+2. **Yes** — read that file; follow its instructions only; do not continue reading this file.
+3. **No** — continue reading below.
+
 This file is for AI agents and future context windows. It captures working norms, design principles, and conventions for this repository that are not obvious from reading the code alone.
 
 ---
@@ -8,7 +13,7 @@ This file is for AI agents and future context windows. It captures working norms
 
 `dagger-grpc` is a **library and code-generation toolkit** that wires gRPC service implementations into a [Dagger 2](https://dagger.dev/) dependency-injection graph with **per-call scoping**. Each incoming gRPC request gets its own Dagger subcomponent ("call scope"), allowing service handler classes to be instantiated fresh per call (with full DI) rather than being singletons. The primary integration target is [Armeria](https://armeria.dev/) as the gRPC server runtime.
 
-The project targets JVM backends (Java and Kotlin), uses Bazel 8 with Bzlmod, and is at version `0.1`.
+The project targets JVM backends (Java and Kotlin), uses Bazel 8 with Bzlmod, and is at version `0.1.0`.
 
 ---
 
@@ -309,6 +314,19 @@ The highest-priority open items are:
 
 ---
 
+## No Inline Content in Shell Commands
+
+Never pass non-trivial text inline to any shell command or tool call. Characters such as backticks, `---`, and `*` are misinterpreted by shell argument parsers and security hooks even when the content is benign.
+
+Always write content to a file first, then reference it by path. Use discriminated names to avoid collisions between concurrent agents working across repos or PRs:
+- `gh pr create/edit` body: Write tool to `/tmp/dagger-grpc-<branch>-pr-body.md`, then `--body-file /tmp/dagger-grpc-<branch>-pr-body.md`
+- `gh api` comment/reply body: Write tool to `/tmp/dagger-grpc-<branch>-comment.txt`, then `-F body=@/tmp/dagger-grpc-<branch>-comment.txt`
+- Agent subagent prompts: Write tool to `/tmp/dagger-grpc-<branch>-prompt-<purpose>.md`, then in the Agent prompt say "Read your instructions from `/tmp/dagger-grpc-<branch>-prompt-<purpose>.md` and execute them"
+
+**This rule applies to subagents too.** Embed it verbatim at the top of every prompt written to `/tmp` before spawning a subagent.
+
+---
+
 ## What Good Looks Like (Reference Points)
 
 | Concern | Reference |
@@ -324,3 +342,23 @@ The highest-priority open items are:
 | APT processor Bazel wiring | `io_grpc/compiler/apt/BUILD.bazel` |
 | KSP processor Bazel wiring | `io_grpc/compiler/ksp/BUILD.bazel` |
 | third_party plugin wrapping | `third_party/dagger/BUILD.bazel`, `third_party/processors/BUILD.bazel` |
+
+---
+
+## Geekinasuit Agent Rules (mandatory bootstrap — complete before responding to user)
+
+Load exactly one of the following — first match wins. "Stop here" means stop searching
+for more chain files; the bootstrap is not complete until the matched file is read.
+
+1. If `/opt/geekinasuit/agents/internal/AGENTS.compressed.md` exists, read it; else if
+   `/opt/geekinasuit/agents/internal/AGENTS.md` exists, read it. Follow its contents
+   before proceeding. Stop chain search here (do not check steps 2 or 3).
+2. If `/opt/geekinasuit/agents/public/AGENTS.compressed.md` exists, read it; else if
+   `/opt/geekinasuit/agents/public/AGENTS.md` exists, read it. Follow its contents
+   before proceeding. Stop chain search here (do not check step 3).
+3. If `~/.geekinasuit/agents/public/AGENTS.compressed.md` exists, read it; else if
+   `~/.geekinasuit/agents/public/AGENTS.md` exists, read it. Follow its contents
+   before proceeding. Stop chain search here.
+
+If none of the above paths exist, skip this section — it is not required for
+contributor work and will not be present on most machines.
