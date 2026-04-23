@@ -11,7 +11,7 @@ T00  Verify HEAD builds & tests          HIGH    ✅ DONE
   └─ T02  Pin Kotlin toolchain           MEDIUM
   └─ T03  Proto version skew             LOW     ✅ DONE
 
-T04  Design module generation shape      HIGH    (prerequisite for T05/T06/T07)
+T04  Design module generation shape      HIGH    ✅ DONE
   └─ T07  Extend ksp-apt-bridge          MEDIUM  (prerequisite for T05/T06)
        └─ T05  KSP module generation     HIGH    (core feature)
        └─ T06  APT module generation     HIGH    (core feature)
@@ -37,7 +37,7 @@ T17  Publish Maven artifacts             MEDIUM  (after stable release tag; coor
 | T01 | Update Kotlin example to canonical Bzlmod names (hygiene) | LOW | infra | open   |
 | T02 | Pin Kotlin toolchain version                  | MEDIUM   | infra        | open   |
 | T03 | Resolve proto version skew                    | LOW      | infra        | done   |
-| T04 | Design generated module shape (ADR)           | HIGH     | codegen      | open   |
+| T04 | Design generated module shape (ADR)           | HIGH     | codegen      | done   |
 | T05 | Implement KSP module generation               | HIGH     | codegen      | open   |
 | T06 | Implement APT module generation               | HIGH     | codegen      | open   |
 | T07 | Extend ksp-apt-bridge for module generation   | MEDIUM   | codegen      | open   |
